@@ -8,10 +8,7 @@
     "start-start": "concurrently \"npm run server\" \"npm run client\"",
     "server": "ts-node server/index.ts",
     "client": "node server/start-client.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm run build-server && npm run build-client",
-    "build-server": "tsc",
-    "build-client": "react-scripts build"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
