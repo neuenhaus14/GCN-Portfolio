@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.ts",
+  "homepage": ".",
   "scripts": {
     "start": "npm run server & npm run client",
     "start-start": "concurrently \"npm run server\" \"npm run client\"",
