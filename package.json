@@ -5,7 +5,7 @@
   "main": "index.ts",
   "homepage": ".",
   "scripts": {
-    "start": "npm run client & npm run server",
+    "start": "npm run server",
     "start-start": "concurrently \"npm run server\" \"npm run client\"",
     "server": "ts-node server/index.ts",
     "client": "node server/start-client.js",
