@@ -14,7 +14,7 @@ function App() {
   const getData = async () => {
     try {
       const { data } = await axios.get("/api")
-      console.log(data)
+      setData(data.message)
     } catch {
       console.log("error")
     }
@@ -25,9 +25,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
+        This is your response from the server: {data}
         <a
           className="App-link"
           href="https://reactjs.org"
