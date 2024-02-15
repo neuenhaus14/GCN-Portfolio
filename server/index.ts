@@ -8,6 +8,7 @@ const app = express();
 
 
 // Have Node serve the files for our built React app
+// this should work
 const distPath = path.resolve(__dirname, '..', "client");
 app.use(express.static(distPath));
 app.use(express.json())
