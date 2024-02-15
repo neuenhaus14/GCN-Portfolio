@@ -9,8 +9,9 @@ const app = express();
 
 // Have Node serve the files for our built React app
 // this should work
-const distPath = path.resolve(__dirname, '..', "client", "build");
-app.use(express.static(distPath));
+app.use(express.static(path.join(__dirname, 'build')));
+// const distPath = path.resolve(__dirname, '..', "client", "build");
+// app.use(express.static(distPath));
 // app.use(express.static(path.resolve(__dirname, '../client/build')));
 app.use(express.json())
 
@@ -20,10 +21,13 @@ app.get("/api", (req, res) => {
 });
 
 // // All other GET requests not handled before will return our React app
-app.get('/*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '..', "client", "build", "index.html"));
+app.get('*/', (req, res) => {
+  // res.sendFile(path.resolve(__dirname, '..', "client", "build", "index.html"));
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
+console.log(path.resolve(__dirname, '..', "client", "build", "index.html"));
+console.log(path.resolve(__dirname, 'build', 'index.html'));
 // app.use(express.static(path.resolve(__dirname, '../client/build')));
 
 
