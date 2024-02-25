@@ -11,7 +11,7 @@ const Home = () => {
       Hellloooo!
       This is my face!
       <img src={face} alt="gretchen" width="700" height="500"/>
-      <button onClick={() => navigate('/about')}>Go to About Page</button>
+      <button onClick={() => navigate('/game')}>Go to About Page</button>
     </div>
   )
 }
