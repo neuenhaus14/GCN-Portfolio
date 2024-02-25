@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
-
 // import axios from 'axios';
+import face from "./face.jpg"
 
 const Home = () => {
   const navigate = useNavigate()
@@ -9,6 +9,8 @@ const Home = () => {
   return (
     <div>
       Hellloooo!
+      This is my face!
+      <img src={face} alt="gretchen" width="700" height="500"/>
       <button onClick={() => navigate('/about')}>Go to About Page</button>
     </div>
   )

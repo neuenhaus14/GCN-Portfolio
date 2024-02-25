@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
-import logo from "./logo.svg";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+// import logo from "./logo.svg";
 import axios from "axios";
 import "./App.css";
 import Home from "./Home";
-import About from "./About";
+import Game from "./Game";
 
 function App() {
   const [data, setData] = useState(null);
@@ -18,6 +18,7 @@ function App() {
     try {
       const { data } = await axios.get("/api");
       setData(data.message);
+      console.log(data)
     } catch {
       console.log("error");
     }
@@ -42,7 +43,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/game" element={<Game />} />
 
         </Routes>
       </BrowserRouter>
