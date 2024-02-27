@@ -1,2 +1,22 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;700&family=Inter:wght@600;700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Shrikhand&display=swap');
+
+
+$tangerine: #ffac81;
+$coral: #FF928B;
+$apricot: #FEC3A6;
+$vanilla: #EFE9AE;
+$teaGreen: #CDEAC0;
+
+$primary: #FF928B;
+
 @import '../node_modules/bootstrap/scss/bootstrap.scss';
-@import '~bootstrap/scss/carousel';
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.btn-outline-primary{
+
+}

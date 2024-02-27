@@ -6,7 +6,7 @@ import "./App.css";
 import Home from "./Home";
 import Game from "./Game";
 
-import banner from "./img/gnBanner.png";
+import banner from "./img/GNBanner2skinny.png";
 
 function App() {
   const [data, setData] = useState(null);
@@ -41,8 +41,8 @@ function App() {
         Learn React
         </a>
       </header> */}
-      This is your response from the server: {data}
       <img src={banner} alt="gretchen" width="100%" height="auto"/><br />
+      This is your response from the server: {data}
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
