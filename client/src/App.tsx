@@ -6,6 +6,8 @@ import "./App.css";
 import Home from "./Home";
 import Game from "./Game";
 
+import banner from "./img/gnBanner.png";
+
 function App() {
   const [data, setData] = useState(null);
 
@@ -40,6 +42,7 @@ function App() {
         </a>
       </header> */}
       This is your response from the server: {data}
+      <img src={banner} alt="gretchen" width="100%" height="auto"/><br />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />

@@ -1,4 +1,6 @@
+//eslint-disable-no-unused-vars
 import React from "react";
+
 import gretAward from ".//img/gretAward.jpg"
 import gretPresent from ".//img/gretPresent.jpg"
 import momGret from ".//img/momGret.jpg"
@@ -13,21 +15,21 @@ const Carousel = () => {
       </ol>
       <div className="carousel-inner">
         <div className="carousel-item active">
-          <img className="d-block w-100" src={gretAward} width="25%" height="25%" alt="First slide"/>
+          <img className="w-25" src={gretAward}  alt="First slide"/>
         </div>
         <div className="carousel-item">
-          <img className="d-block w-100" src={gretPresent} width="25%" height="25%" alt="Second slide"/>
+          <img className="d-block w-25" src={gretPresent} alt="Second slide"/>
         </div>
         <div className="carousel-item">
-          <img className="d-block w-100" src={momGret} width="25%" height="25%" alt="Third slide"/>
+          <img className="d-block w-25" src={momGret} alt="Third slide"/>
         </div>
       </div>
-      <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+      <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span className="carousel-control-prev-icon" aria-hidden="true" style={{'backgroundColor': "black"}}></span>
         <span className="sr-only">Previous</span>
       </a>
-      <a className="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span className="carousel-control-next-icon" aria-hidden="true"></span>
+      <a className="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span className="carousel-control-next-icon" aria-hidden="true" style={{'backgroundColor': "black"}}></span>
         <span className="sr-only">Next</span>
       </a>
 </div>
