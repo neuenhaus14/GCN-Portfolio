@@ -12,7 +12,7 @@ app.use(express.json())
 
 // Handle GET requests to /api route
 app.get("/api", (req, res) => {
-  res.send({ message: "You're doing great SOSos" });
+  res.send({ message: "You're doing great SOSosos" });
 });
 
 // All other GET requests not handled before will return our React app
