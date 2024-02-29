@@ -8,9 +8,8 @@
     "start-start": "concurrently \"npm run server\" \"npm run client\"",
     "server": "ts-node server/index.ts",
     "client": "node server/start-client.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "server-build": "tsc",
-    "heroku-postbuild": "cd client && npm install && npm run build && cd ../server && npm install && npm run server-build"
+    "test": "echo \"Error: no test specified\" && exit 1"
+
   },
   "keywords": [],
   "author": "",
