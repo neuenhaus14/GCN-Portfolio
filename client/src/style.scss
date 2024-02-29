@@ -17,6 +17,45 @@ body {
   font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
-.btn-outline-primary{
+.congrats-container {
+ //position: relative; /* Position relative to contain absolute positioned image */
+  min-height: 200px;
+  min-width: 100% ;
+// width: 100%; /* Set width to match the viewport width */
+  overflow: hidden; /* Hide any overflow content */
+  display: flex;
+  justify-content: center;
+}
 
+@keyframes fly{
+
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.congrats {
+  animation: fly 3s linear;
+  position: absolute;
+  margin: auto;
+  display: block;
+  // top: 25%;
+  // left: 0;
+  //transform: translateX(-100%);
+}
+
+
+
+.btn {
+  transition: transform 0.3s ease 0s;
+}
+
+.btn:hover {
+  transform: translateY(-5px)
 }
