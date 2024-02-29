@@ -42,7 +42,7 @@ function App() {
         </a>
       </header> */}
       <img src={banner} alt="gretchen" width="100%" height="auto"/><br />
-      This is your response from the server sos!: {data}
+      This is your response from the server sossos!: {data}
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
