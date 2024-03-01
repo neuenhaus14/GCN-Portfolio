@@ -68,9 +68,9 @@ const Game = () => {
           ) : null}
           {isWrongValue ? <h3> YIKES, TRY AGAIN</h3> : null}
         </div>
-        <div>
+        {/* <div>
           <h2>Tic Tac Toe</h2>
-        </div>
+        </div> */}
       </div>
     </div>
   );
