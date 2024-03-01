@@ -1,14 +1,11 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React, {useState} from 'react';
 
-
 import NavBar from "./NavBar";
-
 //import face from "./img/face.jpg"
 import gretAward from ".//img/gretAward.jpg"
 import gretPresent from ".//img/gretPresent.jpg"
 import momGret from ".//img/momGret.jpg"
-
 
 
 const Home = () => {
@@ -22,9 +19,6 @@ const Home = () => {
 
   return (
     <div>
-      {/* Hellloooo!
-      This is my face!
-      <img src={face} alt="gretchen" width="700" height="500"/><br /> */}
       <NavBar />
       <div className="container-sm" style={{paddingTop: "10px", paddingBottom: "10px", border:'4px solid #FF928B',}}>
         { showImg ? (
