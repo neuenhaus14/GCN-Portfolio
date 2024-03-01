@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React, {useState} from 'react';
-// import axios from 'axios';
+
 
 import NavBar from "./NavBar";
 
@@ -17,17 +17,8 @@ const Home = () => {
 
   const openImage = (img:string) => {
     setShowImg(!showImg)
-
-    return img === "gretAward" ? setImage(gretAward) : img === "gretPresent" ? setImage(gretPresent) : img === "momGret" ? setImage(momGret) : setImage("")
-
-    // return (
-    //   <div className="container-sm" style={{paddingTop: "10px", paddingBottom: "10px", border:'4px solid #FF928B',}}>
-    //     <div className="row align-items-center">
-    //       <img src={image} alt="clicked photo" width="100%" height="auto" />
-    //     </div>
-    //   </div>
-    // )
-  }
+    img === "gretAward" ? setImage(gretAward) : img === "gretPresent" ? setImage(gretPresent) : img === "momGret" ? setImage(momGret) : setImage("")
+  };
 
   return (
     <div>
@@ -40,12 +31,15 @@ const Home = () => {
         <div className="row align-items-center">
           <div className="col d-flex justify-content-center">
             <img src={gretAward} width="100%" height="auto" alt="gretAward" onClick={() => openImage("gretAward")}/>
+            <h4 className="overlay">Click to Enlarge or Shrink</h4>
           </div>
           <div className="col d-flex justify-content-center">
             <img src={gretPresent} width="100%" height="auto" alt="gretPresent" onClick={() => openImage("gretPresent")}/>
+            <h4 className="overlay">Click to Enlarge or Shrink</h4>
           </div>
           <div className="col d-flex justify-content-center">
             <img src={momGret} width="100%" height="auto" alt="momGret" onClick={() => openImage("momGret")}/>
+            <h4 className="overlay">Click to Enlarge or Shrink</h4>
           </div>
         </div>
         ): (

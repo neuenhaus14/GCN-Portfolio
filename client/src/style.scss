@@ -59,3 +59,24 @@ body {
 .btn:hover {
   transform: translateY(-5px)
 }
+
+.overlay {
+  position: absolute;
+  // bottom: 50;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+  color: #f1f1f1;
+  width: 28%;
+  transition: .5s ease;
+  opacity:0;
+  color: white;
+  font-size: 15px;
+  // margin-right: 10px;
+  padding: 20px;
+  text-align: center;
+}
+
+/* When you mouse over the container, fade in the overlay title */
+.col:hover .overlay {
+  opacity: 1;
+}
