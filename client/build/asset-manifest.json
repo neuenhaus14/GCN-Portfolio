@@ -1,19 +1,20 @@
 {
   "files": {
-    "main.css": "/static/css/main.c9f56fa1.css",
-    "main.js": "/static/js/main.14b94e8d.js",
+    "main.css": "/static/css/main.07824e7b.css",
+    "main.js": "/static/js/main.fa9bdfa5.js",
     "static/js/592.599f76a2.chunk.js": "/static/js/592.599f76a2.chunk.js",
     "static/media/momGret.jpg": "/static/media/momGret.a0cb415e20dace2909cb.jpg",
     "static/media/gretPresent.jpg": "/static/media/gretPresent.b100edb172513d67a348.jpg",
     "static/media/gretAward.jpg": "/static/media/gretAward.66c366537cc50dba1cfa.jpg",
+    "static/media/Congratulations.png": "/static/media/Congratulations.699760b12714813980a3.png",
     "static/media/GNBanner2skinny.png": "/static/media/GNBanner2skinny.3e322215b132f66cdc44.png",
     "index.html": "/index.html",
-    "main.c9f56fa1.css.map": "/static/css/main.c9f56fa1.css.map",
-    "main.14b94e8d.js.map": "/static/js/main.14b94e8d.js.map",
+    "main.07824e7b.css.map": "/static/css/main.07824e7b.css.map",
+    "main.fa9bdfa5.js.map": "/static/js/main.fa9bdfa5.js.map",
     "592.599f76a2.chunk.js.map": "/static/js/592.599f76a2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c9f56fa1.css",
-    "static/js/main.14b94e8d.js"
+    "static/css/main.07824e7b.css",
+    "static/js/main.fa9bdfa5.js"
   ]
 }
