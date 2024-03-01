@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable jsx-a11y/img-redundant-alt */
+import React, {useState} from 'react';
 // import axios from 'axios';
 
 import NavBar from "./NavBar";
@@ -11,6 +12,23 @@ import momGret from ".//img/momGret.jpg"
 
 
 const Home = () => {
+  const [showImg, setShowImg] = useState(true);
+  const [image, setImage] = useState("")
+
+  const openImage = (img:string) => {
+    setShowImg(!showImg)
+
+    return img === "gretAward" ? setImage(gretAward) : img === "gretPresent" ? setImage(gretPresent) : img === "momGret" ? setImage(momGret) : setImage("")
+
+    // return (
+    //   <div className="container-sm" style={{paddingTop: "10px", paddingBottom: "10px", border:'4px solid #FF928B',}}>
+    //     <div className="row align-items-center">
+    //       <img src={image} alt="clicked photo" width="100%" height="auto" />
+    //     </div>
+    //   </div>
+    // )
+  }
+
   return (
     <div>
       {/* Hellloooo!
@@ -18,17 +36,23 @@ const Home = () => {
       <img src={face} alt="gretchen" width="700" height="500"/><br /> */}
       <NavBar />
       <div className="container-sm" style={{paddingTop: "10px", paddingBottom: "10px", border:'4px solid #FF928B',}}>
+        { showImg ? (
         <div className="row align-items-center">
           <div className="col d-flex justify-content-center">
-            <img src={gretAward} width="100%" height="auto" alt="First slide" />
+            <img src={gretAward} width="100%" height="auto" alt="gretAward" onClick={() => openImage("gretAward")}/>
           </div>
           <div className="col d-flex justify-content-center">
-            <img src={gretPresent} width="100%" height="auto" alt="Second slide" />
+            <img src={gretPresent} width="100%" height="auto" alt="gretPresent" onClick={() => openImage("gretPresent")}/>
           </div>
           <div className="col d-flex justify-content-center">
-            <img src={momGret} width="100%" height="auto" alt="Third slide" />
+            <img src={momGret} width="100%" height="auto" alt="momGret" onClick={() => openImage("momGret")}/>
           </div>
         </div>
+        ): (
+          <div className="row align-items-center">
+            <img src={image} alt="clicked photo" width="100%" height="auto" onClick={() => setShowImg(!showImg)}/>
+          </div>
+        )}
       </div>
       <div className="container-sm" style={{paddingTop: "10px", paddingBottom: "10px", marginTop:"10px", marginBottom:"10px", border:'2px solid #FF928B', backgroundColor:"#FEC3A6"}}>
         <h3>ABOUT ME</h3>
