@@ -20,8 +20,8 @@ const Home = () => {
   return (
     <div>
       <NavBar />
-      <div className="container-sm" style={{paddingTop: "10px", paddingBottom: "10px", border:'4px solid #FF928B',}}>
         { showImg ? (
+      <div className="container-sm" style={{paddingTop: "10px", paddingBottom: "10px", marginTop: "10px", border:'4px solid #FF928B',  background: "#EFE9AE"}}>
         <div className="row align-items-center">
           <div className="col d-flex justify-content-center">
             <img src={gretAward} width="100%" height="auto" alt="gretAward" onClick={() => openImage("gretAward")}/>
@@ -36,12 +36,12 @@ const Home = () => {
             <h4 className="overlay">Click to Enlarge or Shrink</h4>
           </div>
         </div>
+      </div>
         ): (
-          <div className="row align-items-center">
-            <img src={image} alt="clicked photo" onClick={() => setShowImg(!showImg)}/>
+          <div className="container-sm align-items-center" style={{paddingTop: "10px", paddingBottom: "10px", marginTop: "10px", border:'4px solid #FF928B', background: "#EFE9AE"}}>
+            <img src={image} alt="clicked photo" width="40%" onClick={() => setShowImg(!showImg)}/>
           </div>
         )}
-      </div>
       <div className="container-sm" style={{paddingTop: "10px", paddingBottom: "10px", marginTop:"10px", marginBottom:"10px", border:'2px solid #FF928B', backgroundColor:"#FEC3A6"}}>
         <h3>ABOUT ME</h3>
         <h5> Hello! My name is Gretchen Neuenhaus, and I've just completed nearly 1300 hours of training and education from a coding boot camp here in New Orleans. 

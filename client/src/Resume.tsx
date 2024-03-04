@@ -9,9 +9,8 @@ const Resume = () => {
       <div
         className="container-sm"
         style={{
-          paddingTop: "10px",
-          paddingBottom: "10px",
-          border: "4px solid #FF928B",
+          paddingTop: "10px", paddingBottom: "10px", marginTop: "10px",
+          border: "4px solid #FF928B", background: "#EFE9AE"
         }}
       >
         <iframe
