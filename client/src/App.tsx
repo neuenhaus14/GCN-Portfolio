@@ -50,9 +50,11 @@ function App() {
           <Route path="/game" element={<Game />} />
           <Route path="/resume" element={<Resume />} />
         </Routes>
+        
       </BrowserRouter>
     </div>
   );
 }
 
 export default App;
+

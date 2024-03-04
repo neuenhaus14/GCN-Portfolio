@@ -21,7 +21,7 @@ const Home = () => {
     <div>
       <NavBar />
         { showImg ? (
-      <div className="container-sm" style={{paddingTop: "10px", paddingBottom: "10px", marginTop: "10px", border:'4px solid #FF928B',  background: "#EFE9AE"}}>
+      <div className="container-sm" style={{paddingTop: "10px", paddingBottom: "10px", marginTop: "10px", border:'4px solid #FF928B',}}>
         <div className="row align-items-center">
           <div className="col d-flex justify-content-center">
             <img src={gretAward} width="100%" height="auto" alt="gretAward" onClick={() => openImage("gretAward")}/>
@@ -38,7 +38,7 @@ const Home = () => {
         </div>
       </div>
         ): (
-          <div className="container-sm align-items-center" style={{paddingTop: "10px", paddingBottom: "10px", marginTop: "10px", border:'4px solid #FF928B', background: "#EFE9AE"}}>
+          <div className="container-sm align-items-center" style={{paddingTop: "10px", paddingBottom: "10px", marginTop: "10px", border:'4px solid #FF928B',}}>
             <img src={image} alt="clicked photo" width="40%" onClick={() => setShowImg(!showImg)}/>
           </div>
         )}
