@@ -9,6 +9,7 @@ const NavBar = () => {
     <div className=".btn-group btn-group-lg" style={{paddingTop: "10px", paddingBottom: "10px"}}>
       <button type="button" className="btn btn-outline-primary" onClick={() => navigate('/')}>ABOUT</button>
       <button type="button" className="btn btn-outline-primary" onClick={() => navigate('/game')}>GAMES</button>
+      <button type="button" className="btn btn-outline-primary" onClick={() => navigate('/resume')}>RESUME</button>
     </div>
   )
 }

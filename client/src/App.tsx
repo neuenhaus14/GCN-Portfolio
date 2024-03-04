@@ -5,6 +5,7 @@ import axios from "axios";
 import "./App.css";
 import Home from "./Home";
 import Game from "./Game";
+import Resume from "./Resume";
 
 import banner from "./img/GNBanner2skinny.png";
 
@@ -47,7 +48,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/game" element={<Game />} />
-
+          <Route path="/resume" element={<Resume />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -38,7 +38,7 @@ const Home = () => {
         </div>
         ): (
           <div className="row align-items-center">
-            <img src={image} alt="clicked photo" width="100%" height="auto" onClick={() => setShowImg(!showImg)}/>
+            <img src={image} alt="clicked photo" onClick={() => setShowImg(!showImg)}/>
           </div>
         )}
       </div>
