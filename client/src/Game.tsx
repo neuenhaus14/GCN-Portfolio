@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import NavBar from "./NavBar";
-// import axios from 'axios';
 
 import congrats from "./img/Congratulations.png";
 
