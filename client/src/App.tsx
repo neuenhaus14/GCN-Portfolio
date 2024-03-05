@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLinkedin,} from "@fortawesome/free-brands-svg-icons";
+
+
 // import logo from "./logo.svg";
 import axios from "axios";
 import "./App.css";
@@ -43,6 +48,7 @@ function App() {
         </a>
       </header> */}
       <img src={banner} alt="gretchen" width="100%" height="auto"/><br />
+      
       {/* This is your response from the server!: {data} */}
       <BrowserRouter>
         <Routes>
@@ -50,8 +56,10 @@ function App() {
           <Route path="/game" element={<Game />} />
           <Route path="/resume" element={<Resume />} />
         </Routes>
-        
       </BrowserRouter>
+        <a href="https://www.linkedin.com/in/gretchen-neuenhaus/" className="linkedIn-social">
+          <FontAwesomeIcon icon={faLinkedin} size="2x" />  
+        </a>
     </div>
   );
 }

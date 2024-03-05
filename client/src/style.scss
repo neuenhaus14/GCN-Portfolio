@@ -53,6 +53,8 @@ body {
 
 
 .btn {
+  margin-left: 2px;
+  margin-right: 2px; 
   transition: transform 0.3s ease 0s;
 }
 
@@ -82,3 +84,12 @@ body {
 }
 
 
+.container-sm{
+  border-radius: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 2px solid $primary;
+  box-shadow: 2px 2px 0 0 $tangerine; 
+}

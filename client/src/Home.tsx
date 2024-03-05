@@ -21,7 +21,7 @@ const Home = () => {
     <div>
       <NavBar />
         { showImg ? (
-      <div className="container-sm" style={{paddingTop: "10px", paddingBottom: "10px", marginTop: "10px", border:'3px solid #FF928B',}}>
+      <div className="container-sm" >
         <div className="row align-items-center">
           <div className="col d-flex justify-content-center">
             <img src={gretAward} width="100%" height="auto" alt="gretAward" onClick={() => openImage("gretAward")}/>
@@ -38,11 +38,11 @@ const Home = () => {
         </div>
       </div>
         ): (
-          <div className="container-sm align-items-center" style={{paddingTop: "10px", paddingBottom: "10px", marginTop: "10px", border:'4px solid #FF928B',}}>
-            <img src={image} alt="clicked photo" width="40%" onClick={() => setShowImg(!showImg)}/>
+          <div className="container-sm" style={{display: "flex", justifyContent: "center", alignItems:"center", width: "550px"}}>
+            <img src={image} alt="clicked photo" width="100%" height="auto" onClick={() => setShowImg(!showImg)}/>
           </div>
         )}
-      <div className="container-sm" style={{paddingTop: "10px", paddingBottom: "10px", marginTop:"10px", marginBottom:"10px", border:'2px solid #FF928B', backgroundColor:"#FEC3A6"}}>
+      <div className="container-sm" style={{backgroundColor:"#FEC3A6"}}>
         <h3>ABOUT ME</h3>
         <h5> Hello! My name is Gretchen Neuenhaus, and I've just completed nearly 1300 hours of training and education from a coding boot camp here in New Orleans. 
         I’m trained as a full stack software engineer/ developer most comfortable with the following tech stack: SQL, Sequelize, JavaScript/TypeScript, React, Node, Express, Bootstrap and Sass. 
