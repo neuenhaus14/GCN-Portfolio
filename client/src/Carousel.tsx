@@ -6,6 +6,7 @@ import gigs from "./img/pgScreenShots/gigs.png";
 import home from "./img/pgScreenShots/home.png";
 import map from "./img/pgScreenShots/map.png";
 
+// will need to make others for the other projects
 const PGCarousel = () => {
 
   const [index, setIndex] = useState(0);
