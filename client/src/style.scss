@@ -10,6 +10,7 @@ $vanilla: #EFE9AE;
 $teaGreen: #CDEAC0;
 
 $primary: #FF928B;
+$secondary: #ffac81;
 
 @import '../node_modules/bootstrap/scss/bootstrap.scss';
 
@@ -99,42 +100,21 @@ body {
   // box-shadow: 2px 2px 0 0 $tangerine; 
 }
 
-.projects {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
 .carousel-container {
-  border: 1px solid #ccc;
+  border: 1px solid $primary;
   border-radius: 8px;
   padding: 10px;
   margin: auto;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  //display: none;
   flex-direction: column;
   position: relative;
-  background-color: $primary;
-  max-width: 450px;
+  background-color: $secondary;
+  max-width: 350px;
 }
 
-// .carousel-item {
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   align-items: center;
-//   padding-bottom: 50px;
-// }
-
-// .carousel-item.active {
-//   display: block; /* Show active carousel item */
-// }
-
-// .carousel-img {
-//   width: 70%;
-//   height: auto;
-// }
+.col-sm {
+  padding-bottom: 10px;
+}
 
 // @include media-breakpoint-up(lg) {
 //   .carousel-container {
