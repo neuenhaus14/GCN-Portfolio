@@ -19,8 +19,9 @@ const NavBar = () => {
     }}>
       <div className=".btn-group" >
         <button type="button" className="btn btn-primary" onClick={() => navigate('/')}>ABOUT</button>
-        <button type="button" className="btn btn-primary" onClick={() => navigate('/game')}>GAMES</button>
         <button type="button" className="btn btn-primary" onClick={() => navigate('/resume')}>RESUME</button>
+        <button type="button" className="btn btn-primary" onClick={() => navigate('/projects')}>PROJECTS</button>
+        <button type="button" className="btn btn-primary" onClick={() => navigate('/game')}>GAMES</button>
       </div>
     {/* </div> */}
   

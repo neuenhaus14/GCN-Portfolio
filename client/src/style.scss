@@ -93,3 +93,60 @@ body {
   border: 2px solid $primary;
   box-shadow: 2px 2px 0 0 $tangerine; 
 }
+
+.navbar{
+  border: 1px solid $primary;
+  // box-shadow: 2px 2px 0 0 $tangerine; 
+}
+
+.projects {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-container {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  margin: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  //display: none;
+  flex-direction: column;
+  position: relative;
+  background-color: $primary;
+  max-width: 450px;
+}
+
+// .carousel-item {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//   padding-bottom: 50px;
+// }
+
+// .carousel-item.active {
+//   display: block; /* Show active carousel item */
+// }
+
+// .carousel-img {
+//   width: 70%;
+//   height: auto;
+// }
+
+// @include media-breakpoint-up(lg) {
+//   .carousel-container {
+//     display: flex; // displays carousel for lg screen
+//     margin-left: 2vw;
+//   }
+  // .login-info-container {
+  //   margin-right: 2vw;
+  // }
+  // .container-sm {
+  //   padding-left: calc(15px + 10vw);
+  //   padding-right: calc(15px + 10vw);
+  // }
+// }
+

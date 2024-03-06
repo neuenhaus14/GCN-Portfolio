@@ -6,13 +6,7 @@ const Resume = () => {
   return (
     <div>
       <NavBar />
-      <div
-        className="container-sm"
-        style={{
-          paddingTop: "10px", paddingBottom: "10px", marginTop: "10px",
-          border: "3px solid #FF928B",
-        }}
-      >
+      <div className="container-sm">
         <iframe
           title="gneuenhaus Resume"
           src="/gNeuenhausResume.pdf"
