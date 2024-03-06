@@ -1,20 +1,24 @@
 {
   "files": {
-    "main.css": "/static/css/main.294f61a4.css",
-    "main.js": "/static/js/main.5834c4dc.js",
+    "main.css": "/static/css/main.11bdf230.css",
+    "main.js": "/static/js/main.aa23c7a0.js",
     "static/js/592.599f76a2.chunk.js": "/static/js/592.599f76a2.chunk.js",
     "static/media/momGret.jpg": "/static/media/momGret.a0cb415e20dace2909cb.jpg",
     "static/media/gretPresent.jpg": "/static/media/gretPresent.b100edb172513d67a348.jpg",
     "static/media/gretAward.jpg": "/static/media/gretAward.66c366537cc50dba1cfa.jpg",
+    "static/media/home.png": "/static/media/home.1d7355d6a9b452a339af.png",
+    "static/media/map.png": "/static/media/map.12c1dd4453860cae8285.png",
+    "static/media/event.png": "/static/media/event.26708c78ee85bb7c5033.png",
     "static/media/Congratulations.png": "/static/media/Congratulations.699760b12714813980a3.png",
+    "static/media/gigs.png": "/static/media/gigs.75284858c774d37816b2.png",
     "static/media/GNBanner2skinny.png": "/static/media/GNBanner2skinny.3e322215b132f66cdc44.png",
     "index.html": "/index.html",
-    "main.294f61a4.css.map": "/static/css/main.294f61a4.css.map",
-    "main.5834c4dc.js.map": "/static/js/main.5834c4dc.js.map",
+    "main.11bdf230.css.map": "/static/css/main.11bdf230.css.map",
+    "main.aa23c7a0.js.map": "/static/js/main.aa23c7a0.js.map",
     "592.599f76a2.chunk.js.map": "/static/js/592.599f76a2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.294f61a4.css",
-    "static/js/main.5834c4dc.js"
+    "static/css/main.11bdf230.css",
+    "static/js/main.aa23c7a0.js"
   ]
 }
