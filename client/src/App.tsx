@@ -12,6 +12,7 @@ import Home from "./Home";
 import Game from "./Game";
 import Resume from "./Resume";
 import Projects from "./Projects";
+import Contact from "./Contact";
 
 import banner from "./img/GNBanner2skinny.png";
 
@@ -57,6 +58,7 @@ function App() {
           <Route path="/game" element={<Game />} />
           <Route path="/resume" element={<Resume />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </BrowserRouter>
         <a href="https://www.linkedin.com/in/gretchen-neuenhaus/" className="linkedIn-social">
