@@ -21,25 +21,24 @@ const Home = () => {
     <div>
       <NavBar />
         { showImg ? (
-      <div className="container-sm" >
-        <div className="row align-items-center">
-          <div className="col d-flex justify-content-center">
+      <div id="unselected-img" className="container-sm" style={{ display: "flex", flexDirection: "row", justifyContent: "space-evenly", flexWrap: "wrap", alignItems: "center", }}>
+        <div className="row">
+          <div className="col-sm" style={{paddingBottom: "10px"}}>
             <img src={gretAward} width="100%" height="auto" alt="gretAward" onClick={() => openImage("gretAward")}/>
             <h4 className="overlay">Click to Enlarge or Shrink</h4>
           </div>
-          <div className="col d-flex justify-content-center">
+          <div className="col-sm" style={{paddingBottom: "10px"}}>
             <img src={gretPresent} width="100%" height="auto" alt="gretPresent" onClick={() => openImage("gretPresent")}/>
             <h4 className="overlay">Click to Enlarge or Shrink</h4>
           </div>
-          <div className="col d-flex justify-content-center">
+          <div className="col-sm">
             <img src={momGret} width="100%" height="auto" alt="momGret" onClick={() => openImage("momGret")}/>
             <h4 className="overlay">Click to Enlarge or Shrink</h4>
           </div>
         </div>
       </div>
         ): (
-          //removed width: 550px from this container to work with mobile
-          <div className="container-sm" style={{display: "flex", justifyContent: "center", alignItems:"center"}}> 
+          <div id="selected-img" className="container-sm" > 
             <img src={image} alt="clicked photo" width="100%" height="auto" onClick={() => setShowImg(!showImg)}/>
           </div>
         )}

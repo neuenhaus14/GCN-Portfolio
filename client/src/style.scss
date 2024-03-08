@@ -113,10 +113,17 @@ body {
 }
 
 .col-sm {
-  padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  
 }
 
-
+.carousel {
+  display: flex;
+  align-items: center;
+}
 // @include media-breakpoint-up(lg) {
 //   .carousel-container {
 //     display: flex; // displays carousel for lg screen
@@ -130,4 +137,47 @@ body {
   //   padding-right: calc(15px + 10vw);
   // }
 // }
+
+#img-container {
+  overflow-x: auto; /* Enable horizontal scrolling for small screens */
+}
+
+#image-container {
+  width: auto; /* Allow the container to adjust its width as needed */
+  max-width: 100%; /* Ensure the container does not exceed the viewport width */
+}
+
+/* Optional: Adjust the style of the scrollbar */
+#img-container::-webkit-scrollbar {
+  width: 5px;
+}
+
+#img-container::-webkit-scrollbar-thumb {
+  background-color: #888;
+}
+
+// mobile version
+@media (max-width: 767px) {
+  #selected-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #unselected-img {
+    width:80%;
+  }
+
+}
+
+// desktop version
+@media (min-width: 768px) {
+  #selected-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 550px
+  }
+
+}
 
