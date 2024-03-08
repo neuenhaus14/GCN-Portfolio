@@ -1,7 +1,9 @@
 import React from "react";
 
 import NavBar from "./NavBar";
-import PGCarousel from "./Carousel";
+import PGCarousel from "./PGCarousel";
+import QPCarousel from "./QPCarousel";
+import TFCarousel from "./TFCarousel";
 
 const Projects = () => {
   return (
@@ -9,7 +11,7 @@ const Projects = () => {
       <NavBar />
        <div className="container-sm" style={{ display: "flex", flexDirection: "row", justifyContent: "space-evenly", flexWrap: "wrap", alignItems: "center", }} >
         <div className="row">
-          <div className="col-sm"  style={{paddingBottom: "10px"}}>
+          <div className="col-sm" >
               <a href="https://pardigras.org/" style={{fontSize: "24px", fontWeight:600}}>PARDI GRAS</a>
               <h5><b>Your One-Stop-Shop for Managing the Chaos of Mardi Gras</b><br/>
                 Share gossip, costumes & throws
@@ -19,12 +21,12 @@ const Projects = () => {
                 <PGCarousel/>
               </div>
             </div>
-          <div className="col-sm"  style={{paddingBottom: "10px"}}>
+          <div className="col-sm" >
                 <a href="https://github.com/KittyScripters/Take-a-Hike" style={{fontSize: "24px", fontWeight:600}}>TAKE-A-HIKE</a>
                 <h5>Plan an outdoor trip with trails and birds in your area and
                 leave comments about the experience.</h5>
               <div className="carousel">
-                <PGCarousel/>
+                <TFCarousel/>
               </div>
             </div>
             <div className="col-sm">
@@ -32,7 +34,7 @@ const Projects = () => {
               <h5>Fun, competitive quiz app for testing trivia knowledge or
               custom created quiz sets.</h5> 
               <div className="carousel">
-                <PGCarousel/>
+                <QPCarousel/>
               </div>
             </div>
           </div>
