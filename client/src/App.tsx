@@ -14,8 +14,8 @@ import Resume from "./Resume";
 import Projects from "./Projects";
 import Contact from "./Contact";
 
-// import banner from "./img/GNBanner2skinny.png";
-import banner from "./img/GNBanner2skinny.jpg";
+import banner from "./img/GNBanner2skinny.png";
+//import banner from "./img/GNBanner2skinny.jpg";
 
 function App() {
   const [data, setData] = useState(null);

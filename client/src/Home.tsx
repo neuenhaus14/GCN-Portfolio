@@ -38,7 +38,8 @@ const Home = () => {
         </div>
       </div>
         ): (
-          <div className="container-sm" style={{display: "flex", justifyContent: "center", alignItems:"center", width: "550px"}}>
+          //removed width: 550px from this container to work with mobile
+          <div className="container-sm" style={{display: "flex", justifyContent: "center", alignItems:"center"}}> 
             <img src={image} alt="clicked photo" width="100%" height="auto" onClick={() => setShowImg(!showImg)}/>
           </div>
         )}
