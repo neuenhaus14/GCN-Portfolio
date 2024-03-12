@@ -14,7 +14,7 @@ import Resume from "./Resume";
 import Projects from "./Projects";
 import Contact from "./Contact";
 
-import banner from "./img/GNBanner2skinny.png";
+//import banner from "./img/GNBanner2skinny.png";
 //import banner from "./img/GNBanner2skinny.jpg";
 
 function App() {
@@ -50,7 +50,7 @@ function App() {
         Learn React
         </a>
       </header> */}
-      <img src={banner} alt="gretchen" width="100%" height="auto"/><br />
+      
       
       {/* This is your response from the server!: {data} */}
       <BrowserRouter>
@@ -62,9 +62,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </BrowserRouter>
-        <a href="https://www.linkedin.com/in/gretchen-neuenhaus/" className="linkedIn-social">
-          <FontAwesomeIcon icon={faLinkedin} size="2x" />  
-        </a>
+        
     </div>
   );
 }
