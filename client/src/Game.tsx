@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import NavBar from "./NavBar";
 
 import congrats from "./img/Congratulations.png";
 
@@ -30,7 +29,6 @@ const Game = () => {
 
   return (
     <div>
-      <NavBar />
       <div className="rand-number">
         <h1>Beat the Computer Series</h1>
         <h2>Random Number</h2>

@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React, {useState} from 'react';
 
-import NavBar from "./NavBar";
 //import face from "./img/face.jpg"
 import gretAward from ".//img/gretAward.jpg"
 import gretPresent from ".//img/gretPresent.jpg"
@@ -19,8 +18,7 @@ const Home = () => {
 
   return (
     <div>
-      <NavBar />
-        { showImg ? (
+      { showImg ? (
       <div id="unselected-img" className="container-sm" style={{ display: "flex", flexDirection: "row", justifyContent: "space-evenly", flexWrap: "wrap", alignItems: "center", }}>
         <div className="row">
           <div className="col-sm" style={{paddingBottom: "10px"}}>
@@ -43,7 +41,7 @@ const Home = () => {
           </div>
         )}
       <div className="container-sm" style={{backgroundColor:"#FEC3A6"}}>
-        <h3>ABOUT ME</h3>
+        {/* <h3>ABOUT ME</h3> */}
         <h5> Hello! My name is Gretchen Neuenhaus, and I've just completed nearly 1300 hours of training and education from a coding boot camp here in New Orleans. 
         I’m trained as a full stack software engineer/ developer most comfortable with the following tech stack: SQL, Sequelize, JavaScript/TypeScript, React, Node, Express, Bootstrap and Sass. 
         Expressing my creativity through design and problem solving is a huge motivation for me. I find the Front End particularly enjoyable, especially UI/UX decisions, and where I feel I make the greatest contribution. <br /><br />

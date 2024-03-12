@@ -95,11 +95,6 @@ body {
   box-shadow: 2px 2px 0 0 $tangerine; 
 }
 
-.navbar{
-  border: 1px solid $primary;
-  // box-shadow: 2px 2px 0 0 $tangerine; 
-}
-
 .carousel-container {
   border: 1px solid $primary;
   border-radius: 8px;
@@ -173,8 +168,17 @@ body {
   padding-top: 10px;
   padding-bottom: 10px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  border: 1px solid $primary;
+}
+
+.title {
+  letter-spacing: 3px; 
+}
+
+h3 {
+  letter-spacing: 3px;
 }
 
 .btn-group {
@@ -198,6 +202,7 @@ body {
   }
 
   .github-social{
+    padding-right: 10px;
     color: $primary;
   }
 

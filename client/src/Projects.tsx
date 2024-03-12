@@ -1,6 +1,5 @@
 import React from "react";
 
-import NavBar from "./NavBar";
 import PGCarousel from "./PGCarousel";
 import QPCarousel from "./QPCarousel";
 import TFCarousel from "./TFCarousel";
@@ -8,7 +7,6 @@ import TFCarousel from "./TFCarousel";
 const Projects = () => {
   return (
     <div>
-      <NavBar />
        <div className="container-sm" style={{ display: "flex", flexDirection: "row", justifyContent: "space-evenly", flexWrap: "wrap", alignItems: "center", }} >
         <div className="row">
           <div className="col-sm" >

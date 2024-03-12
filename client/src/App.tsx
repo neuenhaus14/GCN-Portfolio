@@ -1,8 +1,7 @@
+// eslint-disable-typescript-eslint/no-unused-vars
+
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLinkedin,} from "@fortawesome/free-brands-svg-icons";
 
 
 // import logo from "./logo.svg";
@@ -13,6 +12,7 @@ import Game from "./Game";
 import Resume from "./Resume";
 import Projects from "./Projects";
 import Contact from "./Contact";
+import NavBar from "./NavBar"
 
 //import banner from "./img/GNBanner2skinny.png";
 //import banner from "./img/GNBanner2skinny.jpg";
@@ -55,11 +55,11 @@ function App() {
       {/* This is your response from the server!: {data} */}
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/game" element={<Game />} />
-          <Route path="/resume" element={<Resume />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/" element={<div><NavBar title={"ABOUT"}/><Home /></div>} />
+          <Route path="/game" element={<div><NavBar title={"GAME"}/><Game /></div>} />
+          <Route path="/resume" element={<div><NavBar title={"RESUME"}/><Resume /></div>} />
+          <Route path="/projects" element={<div><NavBar title={"PROJECTS"}/><Projects /></div>} />
+          <Route path="/contact" element={<div><NavBar title={"CONTACT"}/><Contact /></div>} />
         </Routes>
       </BrowserRouter>
         
