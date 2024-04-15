@@ -56,7 +56,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<div><NavBar title={"ABOUT"}/><Home /></div>} />
-          <Route path="/game" element={<div><NavBar title={"GAME"}/><Game /></div>} />
+          <Route path="/game" element={<div><NavBar title={"GAMES"}/><Game /></div>} />
           <Route path="/resume" element={<div><NavBar title={"RESUME"}/><Resume /></div>} />
           <Route path="/projects" element={<div><NavBar title={"PROJECTS"}/><Projects /></div>} />
           <Route path="/contact" element={<div><NavBar title={"CONTACT"}/><Contact /></div>} />

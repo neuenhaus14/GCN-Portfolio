@@ -1,3 +1,7 @@
+In one terminal, run npm start
+In another terminal, cd into client and then run npm start
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -6,6 +6,9 @@ const Game = () => {
   const [randomValue, setRandomValue] = useState<number>(0);
   const [isCorrectValue, setIsCorrectValue] = useState<boolean>();
   const [isWrongValue, setIsWrongValue] = useState<boolean>();
+  const [player, setPlayer] = useState<string>("");
+  const [isPlayerSelected, setIsPlayerSelected] = useState<boolean>(false);
+  const [showBoard, setShowBoard] = useState<boolean>(false);
 
   //returns a random whole number from 0 to 10
   const compChoice = (max: number) => {
@@ -27,10 +30,11 @@ const Game = () => {
     }
   };
 
+
   return (
     <div>
-      <div className="rand-number">
-        <h1>Beat the Computer Series</h1>
+      <h1>Beat the Computer Series</h1>
+      <div id="rand-number" className="container-sm">
         <h2>Random Number</h2>
         Pick a number 0-10! If you choose the same as the comps, you get a
         congratulations!
@@ -65,12 +69,22 @@ const Game = () => {
           ) : null}
           {isWrongValue ? <h3> YIKES, TRY AGAIN</h3> : null}
         </div>
-        {/* <div>
-          <h2>Tic Tac Toe</h2>
-        </div> */}
+      </div>
+      <div id="tic-tac-toe"  className="container-sm">
+        <h1>Tic Tac Toe</h1>
+        <h2>You're up against me! The computer. Think you can win...? I'd like to see you try :)</h2>
+        <h2>Choose your fighter: </h2>
+        <h5><button onClick={() => {setPlayer("X"); setIsPlayerSelected(true)}}>X</button> OR <button onClick={() => {setPlayer("O"); setIsPlayerSelected(true)}}>O</button></h5>
+          <div>
+            {isPlayerSelected ? (player === "X" ? `${`Mmm, if you think that will help... Okay! Let's play`}` : `${`Oh... interesting choice. Okay! Let's play.`}` ) : null}
+          </div>
+          <div>
+            {showBoard ? <p>ADD THE BOARD</p>: null}
+              
+          </div>
       </div>
     </div>
-  );
+  );  
 };
 
 export default Game;

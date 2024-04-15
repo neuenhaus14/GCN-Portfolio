@@ -28,7 +28,7 @@ const NavBar: React.FC<NavBarProps> = ({title}) => {
                 <NavDropdown.Item onClick={() => {navigate("/resume")}}>RESUME</NavDropdown.Item>
                 <NavDropdown.Item onClick={() => {navigate("/projects")}}>PROJECTS</NavDropdown.Item>
                 {/* <NavDropdown.Item onClick={() => {navigate("/contact")}}>CONTACT</NavDropdown.Item> */}
-                {/* <NavDropdown.Item onClick={() => navigate("/game")}>GAMES</NavDropdown.Item> */}
+                <NavDropdown.Item onClick={() => navigate("/game")}>GAMES</NavDropdown.Item>
               </NavDropdown>
             </Nav>
 
