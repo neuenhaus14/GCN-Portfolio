@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from "react";
 
 import congrats from "./img/Congratulations.png";
-import { toHaveAccessibleErrorMessage } from "@testing-library/jest-dom/matchers";
+
 
 const Game = () => {
   const [randomValue, setRandomValue] = useState<number>(0);
@@ -148,6 +149,80 @@ const Game = () => {
     )
   }
 
+  const TicTacToe = () => {
+    const [value, setValue] = useState<string>("");
+    const [gameArray, setGameArray] = useState(Array(9).fill(null));
+    const [compTurn, setCompTurn] = useState<boolean>(false);
+
+    /*
+    on click, save the x or o to the corresponding place in the array
+    have it show up on the board 
+    computer makes it decision....
+      compares all the probablility of winning....? recursion..?
+    
+    have it show up on the board
+    repeat process...
+
+
+    */
+
+    interface SquareProps {
+      value: any
+      onSquareClick: any
+    }
+
+    const Square: React.FC<SquareProps>= ({value, onSquareClick}) => {
+      
+      return (
+        <button className="square" onClick={onSquareClick} value={value}>
+          {value} 
+        </button>
+      );
+    }
+
+    // the only person clicking is the player, that is the value
+    const handleClick = (index: number) => {
+     
+      if (!compTurn){  
+          const updateGameArray = gameArray.map((play, i) => {
+            if(i === index){
+              return player
+            } else {
+              return play
+            }
+          })
+
+          console.log(updateGameArray)
+          setGameArray(updateGameArray)
+          setCompTurn(true);
+
+      } else {
+        console.log('not your turn!!!!!!')
+      }
+    }
+
+    return (
+      <div>
+      <div className="status">status</div>
+      <div className="board-row">
+        <Square value={gameArray[0]} onSquareClick={() => handleClick(0)} />
+        <Square value={gameArray[1]} onSquareClick={() => handleClick(1)} />
+        <Square value={gameArray[2]} onSquareClick={() => handleClick(2)} />
+      </div>
+      <div className="board-row">
+        <Square value={gameArray[3]} onSquareClick={() => handleClick(3)} />
+        <Square value={gameArray[4]} onSquareClick={() => handleClick(4)} />
+        <Square value={gameArray[5]} onSquareClick={() => handleClick(5)} />
+      </div>
+      <div className="board-row">
+        <Square value={gameArray[6]} onSquareClick={() => handleClick(6)} />
+        <Square value={gameArray[7]} onSquareClick={() => handleClick(7)} />
+        <Square value={gameArray[8]} onSquareClick={() => handleClick(8)} />
+      </div>
+      </div>
+    )
+  }
+
   return (
     <div>
       <h1>Beat the Computer Series</h1>
@@ -200,7 +275,8 @@ const Game = () => {
             {isPlayerSelected ? (player === "X" ? `${`Mmm, if you think that will help... Okay! Let's play`}` : `${`Oh... interesting choice. Okay! Let's play.`}` ) : null}
             {showBoard ?
             (<div className="board">
-              <p>You know the rules; let's go</p>
+              <p>You know the rules; go ahead- you first</p>
+              <TicTacToe />
             </div>
             ) : null}
           </div>
