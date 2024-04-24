@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import congrats from "./img/Congratulations.png";
 
@@ -8,7 +8,8 @@ const Game = () => {
   const [randomValue, setRandomValue] = useState<number>(0);
   const [isCorrectValue, setIsCorrectValue] = useState<boolean>();
   const [isWrongValue, setIsWrongValue] = useState<boolean>();
-  const [player, setPlayer] = useState<string>("");
+  const [userPlayer, setUserPlayer] = useState<string>("");
+  const [compPlayer, setCompPlayer] = useState<string>("");
   const [isPlayerSelected, setIsPlayerSelected] = useState<boolean>(false);
   const [showBoard, setShowBoard] = useState<boolean>(false);
 
@@ -150,21 +151,10 @@ const Game = () => {
   }
 
   const TicTacToe = () => {
-    const [value, setValue] = useState<string>("");
     const [gameArray, setGameArray] = useState(Array(9).fill(null));
     const [compTurn, setCompTurn] = useState<boolean>(false);
+  
 
-    /*
-    on click, save the x or o to the corresponding place in the array
-    have it show up on the board 
-    computer makes it decision....
-      compares all the probablility of winning....? recursion..?
-    
-    have it show up on the board
-    repeat process...
-
-
-    */
 
     interface SquareProps {
       value: any
@@ -180,27 +170,117 @@ const Game = () => {
       );
     }
 
+    const winningPlay = () => {
+      const lines = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6],
+      ];
+
+      for (let i = 0; i < lines.length; i++) {
+        const [a, b, c] = lines[i];
+        if (gameArray[a] && gameArray[a] === gameArray[b] && gameArray[a] === gameArray[c]) {
+         return gameArray[a];
+          // return true;
+        }
+      }
+      return false;
+    }
+
+
+    const getAllAvalilableMoves = (board: any) => {
+      return board.filter((move: string) => move !== "O" && move !== "X")
+    }
+
+    const minimaxAlg = (newBoard: any, player: string ) => {
+      let availMoves = getAllAvalilableMoves(newBoard);
+      
+      if (winningPlay() === userPlayer ){
+        return { index: -1, score: -10 };
+      } else if (winningPlay() === compPlayer) {
+        return { index: -1, score: 10 };
+      } else if (availMoves.length === 0) {
+        return { index: -1, score: 0 };
+      }
+
+      let moves = [];
+      
+      for (let i = 0; i < availMoves.length; i++){
+        let move = { index: -1, score: 0 }
+        move.index = newBoard[availMoves[i]];
+        newBoard[availMoves[i]] = player
+
+        if (player === userPlayer){
+          let result = minimaxAlg(newBoard, userPlayer);
+          move.score = result.score;
+        } else {
+          let result = minimaxAlg(newBoard, compPlayer);
+          move.score = result.score;
+        }
+
+        //newBoard[availMoves[i]] = null;
+        newBoard[availMoves[i]] = move.index;
+        moves.push(move);
+      }
+
+      let bestMove = 0;
+      if(player === userPlayer){
+        var bestScore = -10000;
+        for(let i = 0; i < moves.length; i++){
+          if(moves[i].score > bestScore){
+            bestScore = moves[i].score;
+            bestMove = i;
+          }
+        }
+      }else {
+        let bestScore = 10000;
+        for(let i = 0; i < moves.length; i++){
+          if(moves[i].score < bestScore){
+            bestScore = moves[i].score;
+            bestMove = i;
+          }
+        }
+      }
+
+      return moves[bestMove];      
+    }
+
+
     // the only person clicking is the player, that is the value
     const handleClick = (index: number) => {
      
-      if (!compTurn){  
-          const updateGameArray = gameArray.map((play, i) => {
-            if(i === index){
-              return player
-            } else {
-              return play
-            }
-          })
-
-          console.log(updateGameArray)
-          setGameArray(updateGameArray)
-          setCompTurn(true);
+      if (!compTurn && !winningPlay()){  
+        const updatedGameArray = [...gameArray];
+        updatedGameArray[index] = userPlayer;
+        setGameArray(updatedGameArray);
+        setCompTurn(true); 
+        handleCompPlay();
 
       } else {
         console.log('not your turn!!!!!!')
+        
       }
     }
 
+    const handleCompPlay = () => {
+      console.log("function hit", compTurn)
+      
+        setCompTurn(false);
+        let result = minimaxAlg(gameArray, compPlayer)
+        console.log("result", result);
+        
+        const updatedGameArray = [...gameArray];
+        updatedGameArray[result.index] = compPlayer;
+        setGameArray(updatedGameArray);
+
+    
+  }
+  
     return (
       <div>
       <div className="status">status</div>
@@ -270,9 +350,9 @@ const Game = () => {
         <h1>Tic Tac Toe</h1>
         <h2>You're up against me! The computer. Think you can win...? I'd like to see you try :)</h2>
         <h2>Choose your fighter: </h2>
-        <h5><button onClick={() => {setPlayer("X"); setIsPlayerSelected(true); setShowBoard(true)}}>X</button> OR <button onClick={() => {setPlayer("O"); setIsPlayerSelected(true); setShowBoard(true)}}>O</button></h5>
+        <h5><button onClick={() => {setUserPlayer("X"); setCompPlayer("O"); setIsPlayerSelected(true); setShowBoard(true)}}>X</button> OR <button onClick={() => {setUserPlayer("O"); setCompPlayer("X"); setIsPlayerSelected(true); setShowBoard(true)}}>O</button></h5>
           <div>
-            {isPlayerSelected ? (player === "X" ? `${`Mmm, if you think that will help... Okay! Let's play`}` : `${`Oh... interesting choice. Okay! Let's play.`}` ) : null}
+            {isPlayerSelected ? (userPlayer === "X" ? `${`Mmm, if you think that will help... Okay! Let's play`}` : `${`Oh... interesting choice. Okay! Let's play.`}` ) : null}
             {showBoard ?
             (<div className="board">
               <p>You know the rules; go ahead- you first</p>
