@@ -171,7 +171,7 @@ const Game = () => {
       );
     }
 
-    const winningPlay = () => {
+    const winningPlay = (newBoard: any) => {
       const lines = [
         [0, 1, 2],
         [3, 4, 5],
@@ -185,8 +185,8 @@ const Game = () => {
 
       for (let i = 0; i < lines.length; i++) {
         const [a, b, c] = lines[i];
-        if (gameArray[a] && gameArray[a] === gameArray[b] && gameArray[a] === gameArray[c]) {
-         return gameArray[a];
+        if (newBoard[a] && newBoard[a] === newBoard[b] && newBoard[a] === newBoard[c]) {
+         return newBoard[a];
           // return true;
         }
       }
@@ -199,48 +199,53 @@ const Game = () => {
       return board.map((move: any, index: number) => (move === null ? index : null)).filter((move: number) => move !== null);
     }
 
+
+    // finds all possible moves and evaluates available moves based on a score. Then determines which move scores the highest (For the comp)
     const minimaxAlg = (newBoard: any, player: string )  => {
       let availMoves = getAllAvalilableMoves(newBoard);
       
-      if (winningPlay() === userPlayer ){
-        return { index: -1, score: -10 };
-      } else if (winningPlay() === compPlayer) {
-        return { index: -1, score: 10 };
+      // evaluates if there is a winning state or play and returns the output from the comp POV to handle the recursion result
+      if (winningPlay(newBoard) === userPlayer ){
+        return { score: -10 };
+      } else if (winningPlay(newBoard) === compPlayer) {
+        return { score: 10 };
       } else if (availMoves.length === 0) {
-        return { index: -1, score: 0 };
+        return { score: 0 };
       }
-
+    
       let moves = [];
       
+      // if not a draw or losing state, evaluates available moves
       for (let i = 0; i < availMoves.length; i++){
-        let move = { index: -1, score: 0 }
-        move.index = availMoves[i];
-        newBoard[availMoves[i]] = player
-
+        let move = { index: -1, score: 0 } // typescript 
+        move.index = availMoves[i]; // creates obj with available move options
+        let newBoardCopy = [...newBoard] // create copy to keep state of truth board clean
+        newBoardCopy[availMoves[i]] = player // adds the player/value to the available indexes
+    
+        // alg simulates playing the game and switching players updating the move obj with score result from if else if code block 
         if (player === userPlayer){
-          let result = minimaxAlg(newBoard, userPlayer);
+          let result = minimaxAlg(newBoardCopy, compPlayer); 
           move.score = result.score;
         } else {
-          let result = minimaxAlg(newBoard, compPlayer);
+          let result = minimaxAlg(newBoardCopy, userPlayer); 
           move.score = result.score;
         }
-
-        newBoard[availMoves[i]] = null;
-        //newBoard[availMoves[i]] = move.index;
-        moves.push(move);
+    
+        newBoardCopy[availMoves[i]] = null; // resets board for next iteration
+        moves.push(move); // adds the obj to array to later evalute which is the best out of all the options
       }
-
-      let bestMove = 0;
-      if(player === userPlayer){
-        var bestScore = -10000;
+    
+      let bestMove = 0; // typescript
+      if(player === compPlayer){
+        let bestScore = -Infinity; // must be > than -infinity
         for(let i = 0; i < moves.length; i++){
           if(moves[i].score > bestScore){
-            bestScore = moves[i].score;
-            bestMove = i;
+            bestScore = moves[i].score; // updates
+            bestMove = i; // updates
           }
         }
-      }else {
-        let bestScore = 10000;
+      } else {
+        let bestScore = Infinity; // must be < than infinity
         for(let i = 0; i < moves.length; i++){
           if(moves[i].score < bestScore){
             bestScore = moves[i].score;
@@ -248,21 +253,22 @@ const Game = () => {
           }
         }
       }
-
-    return moves[bestMove];      
+    
+      return moves[bestMove]; // the last bestMove standing is the index we need to get from the array to place the move "obj" index on the board as the "player"/ comp     
     }
 
 
     // the only person clicking is the player, that is the value
     const handleClick = (index: number) => {
     
-      if (!compTurn && gameArray[index] === null && !winningPlay()){  
+      if (!compTurn && gameArray[index] === null){  
         const updatedGameArray = [...gameArray];
         updatedGameArray[index] = userPlayer;
         console.log('handle click updatedGameArray', updatedGameArray)
         setGameArray(updatedGameArray);
         setCompTurn(true); 
-        if (!winningPlay()) {
+        
+        if (!winningPlay(gameArray)) {
           setTimeout(() => handleCompPlay(updatedGameArray), 500); 
         }
       } else {
