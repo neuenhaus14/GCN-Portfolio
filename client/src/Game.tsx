@@ -11,7 +11,7 @@ const Game = () => {
   const [userPlayer, setUserPlayer] = useState<string>("");
   const [compPlayer, setCompPlayer] = useState<string>("");
   const [isPlayerSelected, setIsPlayerSelected] = useState<boolean>(false);
-  const [showBoard, setShowBoard] = useState<boolean>(false);
+  const [showBoard, setShowBoard] = useState<boolean>(true);
 
   //returns a random whole number from 0 to 10
   const compChoice = (max: number) => {
@@ -154,7 +154,8 @@ const Game = () => {
     const [gameArray, setGameArray] = useState(Array(9).fill(null));
     const [compTurn, setCompTurn] = useState<boolean>(false);
   
-
+    // TODO: CHECK THE LOGS you will see that the user and the comp are using two different boards. 
+    // gameArray is not updating correctly and so the minimax function is not using the right board. 
 
     interface SquareProps {
       value: any
@@ -194,10 +195,11 @@ const Game = () => {
 
 
     const getAllAvalilableMoves = (board: any) => {
-      return board.filter((move: string) => move !== "O" && move !== "X")
+      // return board.filter((move: string) => move !== null);
+      return board.map((move: any, index: number) => (move === null ? index : null)).filter((move: number) => move !== null);
     }
 
-    const minimaxAlg = (newBoard: any, player: string ) => {
+    const minimaxAlg = (newBoard: any, player: string )  => {
       let availMoves = getAllAvalilableMoves(newBoard);
       
       if (winningPlay() === userPlayer ){
@@ -212,7 +214,7 @@ const Game = () => {
       
       for (let i = 0; i < availMoves.length; i++){
         let move = { index: -1, score: 0 }
-        move.index = newBoard[availMoves[i]];
+        move.index = availMoves[i];
         newBoard[availMoves[i]] = player
 
         if (player === userPlayer){
@@ -223,8 +225,8 @@ const Game = () => {
           move.score = result.score;
         }
 
-        //newBoard[availMoves[i]] = null;
-        newBoard[availMoves[i]] = move.index;
+        newBoard[availMoves[i]] = null;
+        //newBoard[availMoves[i]] = move.index;
         moves.push(move);
       }
 
@@ -247,37 +249,37 @@ const Game = () => {
         }
       }
 
-      return moves[bestMove];      
+    return moves[bestMove];      
     }
 
 
     // the only person clicking is the player, that is the value
     const handleClick = (index: number) => {
-     
-      if (!compTurn && !winningPlay()){  
+    
+      if (!compTurn && gameArray[index] === null && !winningPlay()){  
         const updatedGameArray = [...gameArray];
         updatedGameArray[index] = userPlayer;
+        console.log('handle click updatedGameArray', updatedGameArray)
         setGameArray(updatedGameArray);
         setCompTurn(true); 
-        handleCompPlay();
-
+        if (!winningPlay()) {
+          setTimeout(() => handleCompPlay(updatedGameArray), 500); 
+        }
       } else {
         console.log('not your turn!!!!!!')
         
       }
     }
 
-    const handleCompPlay = () => {
-      console.log("function hit", compTurn)
+    const handleCompPlay = (gameBoard: any) => {
       
-        setCompTurn(false);
-        let result = minimaxAlg(gameArray, compPlayer)
-        console.log("result", result);
-        
-        const updatedGameArray = [...gameArray];
-        updatedGameArray[result.index] = compPlayer;
-        setGameArray(updatedGameArray);
-
+      let result = minimaxAlg(gameBoard, compPlayer)
+      
+      const newUpdatedGameArray = [...gameBoard];
+      newUpdatedGameArray[result.index] = compPlayer;
+      console.log('comp updatedGameArray', newUpdatedGameArray)
+      setGameArray(newUpdatedGameArray);
+      setCompTurn(false);
     
   }
   
