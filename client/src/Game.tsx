@@ -165,7 +165,7 @@ const Game = () => {
 
 
     useEffect (() => {
-      setStatus('You know the rules; go ahead- you first');
+      setStatus('You know the rules; go ahead- you first.');
     }, [])
 
     const Square: React.FC<SquareProps>= ({value, onSquareClick}) => {
@@ -272,7 +272,7 @@ const Game = () => {
         setGameArray(updatedGameArray);
         setCompTurn(true); 
 
-        setTimeout(() => handleCompPlay(updatedGameArray), 500); 
+        setTimeout(() => handleCompPlay(updatedGameArray), 700); 
        
       } else {
         console.log('not your turn!!!!!!')
@@ -326,11 +326,11 @@ const Game = () => {
         <Square value={gameArray[6]} onSquareClick={() => handleClick(6)} />
         <Square value={gameArray[7]} onSquareClick={() => handleClick(7)} />
         <Square value={gameArray[8]} onSquareClick={() => handleClick(8)} />
-      </div>
+      </div> <br/>
       <div> 
         { endGame ?
         (<div> 
-          <button onClick={() => {setGameArray(Array(9).fill(null)); setStatus('Alright, you first...'); setIsPlayerSelected(false); setShowBoard(false)}}> Try Again</button>
+          <button className="btn btn-outline-primary" onClick={() => {setGameArray(Array(9).fill(null)); setStatus('Alright, you first...'); setIsPlayerSelected(false); setShowBoard(false)}}> Try Again</button>
         </div>
         ) : null
         }
@@ -344,12 +344,12 @@ const Game = () => {
       <h1>Beat the Computer Series</h1>
       <div id="tic-tac-toe"  className="container-sm">
         <h2>Tic Tac Toe</h2>
-        <h3>You're up against me! The computer. Think you can win...? I'd like to see you try :)</h3>
+        <h4>You're up against me! The computer. Think you can win...? I'd like to see you try :)</h4>
         <h4>Choose your fighter: </h4>
         <h5><button className="btn btn-outline-primary"
           onClick={() => {setUserPlayer("X"); setCompPlayer("O"); setIsPlayerSelected(true); setShowBoard(true)}}>X</button> OR <button className="btn btn-outline-primary" onClick={() => {setUserPlayer("O"); setCompPlayer("X"); setIsPlayerSelected(true); setShowBoard(true)}}>O</button></h5>
           <div>
-            {isPlayerSelected ? (userPlayer === "X" ? `${`Mmm, if you think that will help...`}` : `${`Oh... interesting choice.`}` ) : null}
+            {isPlayerSelected ? <p>You are player {userPlayer}. </p> : null}
             {showBoard ?
             (<div className="board">
               <TicTacToe />
@@ -359,8 +359,8 @@ const Game = () => {
       </div>
       <div id="rand-number" className="container-sm">
         <h2>Random Number</h2>
-        <h3>Pick a number 0-10! If you choose the same as the comps, you get a
-        congratulations!</h3>
+        <h4>Pick a number 0-10! If you choose the same as the computer's, you get a
+        congratulations!</h4>
         <div style={{display: "flex", justifyContent: "center", paddingTop: "10px", paddingBottom: "10px"}}>
           <input
             type="number"

@@ -233,17 +233,26 @@ h3 {
 
 .square {
   background: #fff;
-  border: 1px solid #999;
+  border: 2px solid $primary;
   float: left;
-  font-size: 24px;
+  font-size: 30px;
   font-weight: bold;
-  line-height: 34px;
-  height: 34px;
+  line-height: 50px;
+  height: 50px;
   margin-right: -1px;
   margin-top: -1px;
   padding: 0;
   text-align: center;
-  width: 34px;
+  width: 50px;
+}
+
+.square:hover{
+  background: $teaGreen;
+}
+
+.board-row{
+  display: flex;
+  justify-content: center;
 }
 
 .board-row:after {
@@ -253,13 +262,7 @@ h3 {
 }
 
 .status {
+  font-size: 22px;
+  font-weight: 500;
   margin-bottom: 10px;
-}
-.game {
-  display: flex;
-  flex-direction: row;
-}
-
-.game-info {
-  margin-left: 20px;
 }

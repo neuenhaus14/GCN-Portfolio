@@ -1,6 +1,7 @@
 In one terminal, run npm start
 In another terminal, cd into client and then run npm start
 
+To deploy, make sure the build file is removed from client gitignore, cd into client, and then run npm run deploy. 
 
 # Getting Started with Create React App
 
