@@ -156,7 +156,7 @@ const Game = () => {
     const [endGame, setEndGame] = useState<boolean>(false);
     const [status, setStatus] = useState<string>('');
 
-    // TODO: styling, get that board in the middle, change the buttons. 
+
 
     interface SquareProps {
       value: any
