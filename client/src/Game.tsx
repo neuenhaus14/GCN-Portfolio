@@ -11,7 +11,7 @@ const Game = () => {
   const [userPlayer, setUserPlayer] = useState<string>("");
   const [compPlayer, setCompPlayer] = useState<string>("");
   const [isPlayerSelected, setIsPlayerSelected] = useState<boolean>(false);
-  const [showBoard, setShowBoard] = useState<boolean>(true);
+  const [showBoard, setShowBoard] = useState<boolean>(false);
 
   //returns a random whole number from 0 to 10
   const compChoice = (max: number) => {
@@ -153,14 +153,22 @@ const Game = () => {
   const TicTacToe = () => {
     const [gameArray, setGameArray] = useState(Array(9).fill(null));
     const [compTurn, setCompTurn] = useState<boolean>(false);
-  
-    // TODO: CHECK THE LOGS you will see that the user and the comp are using two different boards. 
+    const [endGame, setEndGame] = useState<boolean>(false);
+    const [status, setStatus] = useState<string>('');
+    const [idkDidWin, setIdkDidWin] = useState<boolean>(false)
+
+    // TODO: Handle winning logic, stop the game immediately, say draw or win, create play again button.  
     // gameArray is not updating correctly and so the minimax function is not using the right board. 
 
     interface SquareProps {
       value: any
       onSquareClick: any
     }
+
+
+    useEffect (() => {
+      setStatus('You know the rules; go ahead- you first');
+    }, [])
 
     const Square: React.FC<SquareProps>= ({value, onSquareClick}) => {
       
@@ -193,9 +201,35 @@ const Game = () => {
       return false;
     }
 
+    const didWin = (newBoard: any) => {
+      const lines = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6],
+      ];
 
+      for (let i = 0; i < lines.length; i++) {
+        const [a, b, c] = lines[i];
+        if (newBoard[a] && newBoard[a] === newBoard[b] && newBoard[a] === newBoard[c]) {
+          console.log("winning is true", newBoard[a])
+          // setStatus('Yikes, you lost to the computer!')
+          return newBoard[a];
+          // return true;
+        }
+      }
+      console.log("winning is false")
+      // setStatus('A draw, well done I suppose.')
+      return false;
+    }
+
+
+    // changes the values to either the index or null, if null remove so only availble moves remain
     const getAllAvalilableMoves = (board: any) => {
-      // return board.filter((move: string) => move !== null);
       return board.map((move: any, index: number) => (move === null ? index : null)).filter((move: number) => move !== null);
     }
 
@@ -206,11 +240,11 @@ const Game = () => {
       
       // evaluates if there is a winning state or play and returns the output from the comp POV to handle the recursion result
       if (winningPlay(newBoard) === userPlayer ){
-        return { score: -10 };
+        return { index: -1, score: -10 };
       } else if (winningPlay(newBoard) === compPlayer) {
-        return { score: 10 };
+        return { index: -1, score: 10 };
       } else if (availMoves.length === 0) {
-        return { score: 0 };
+        return { index: -1, score: 0 };
       }
     
       let moves = [];
@@ -260,25 +294,32 @@ const Game = () => {
 
     // the only person clicking is the player, that is the value
     const handleClick = (index: number) => {
-    
-      if (!compTurn && gameArray[index] === null){  
+
+
+  
+      if (!compTurn && gameArray[index] === null && !winningPlay(gameArray)){  
         const updatedGameArray = [...gameArray];
         updatedGameArray[index] = userPlayer;
         console.log('handle click updatedGameArray', updatedGameArray)
         setGameArray(updatedGameArray);
         setCompTurn(true); 
-        
-        if (!winningPlay(gameArray)) {
-          setTimeout(() => handleCompPlay(updatedGameArray), 500); 
-        }
+
+        setTimeout(() => handleCompPlay(updatedGameArray), 500); 
+       
+
       } else {
         console.log('not your turn!!!!!!')
-        
+       
       }
+
+    
     }
 
     const handleCompPlay = (gameBoard: any) => {
-      
+      // if (winningPlay(gameArray)){
+      //   setIdkDidWin(true)
+      // }
+
       let result = minimaxAlg(gameBoard, compPlayer)
       
       const newUpdatedGameArray = [...gameBoard];
@@ -286,12 +327,22 @@ const Game = () => {
       console.log('comp updatedGameArray', newUpdatedGameArray)
       setGameArray(newUpdatedGameArray);
       setCompTurn(false);
+      checkWin(newUpdatedGameArray)
+      
+    }
     
-  }
+    const checkWin = (newUpdatedGameArray: any) => {
+      if (winningPlay(newUpdatedGameArray)){
+        setEndGame(true)
+        setStatus('Yikes, you lost! Wanna try again?')
+      }
+    }
+
+
   
     return (
       <div>
-      <div className="status">status</div>
+      <div className="status">{status}</div>
       <div className="board-row">
         <Square value={gameArray[0]} onSquareClick={() => handleClick(0)} />
         <Square value={gameArray[1]} onSquareClick={() => handleClick(1)} />
@@ -306,6 +357,14 @@ const Game = () => {
         <Square value={gameArray[6]} onSquareClick={() => handleClick(6)} />
         <Square value={gameArray[7]} onSquareClick={() => handleClick(7)} />
         <Square value={gameArray[8]} onSquareClick={() => handleClick(8)} />
+      </div>
+      <div> 
+        { endGame ?
+        (<div> 
+          <button onClick={() => {setGameArray(Array(9).fill(null)); setStatus('Alright, you first...')}}> Try Again</button>
+        </div>
+        ) :  null
+        }
       </div>
       </div>
     )
@@ -363,7 +422,6 @@ const Game = () => {
             {isPlayerSelected ? (userPlayer === "X" ? `${`Mmm, if you think that will help... Okay! Let's play`}` : `${`Oh... interesting choice. Okay! Let's play.`}` ) : null}
             {showBoard ?
             (<div className="board">
-              <p>You know the rules; go ahead- you first</p>
               <TicTacToe />
             </div>
             ) : null}
