@@ -155,10 +155,8 @@ const Game = () => {
     const [compTurn, setCompTurn] = useState<boolean>(false);
     const [endGame, setEndGame] = useState<boolean>(false);
     const [status, setStatus] = useState<string>('');
-    const [idkDidWin, setIdkDidWin] = useState<boolean>(false)
 
-    // TODO: Handle winning logic, stop the game immediately, say draw or win, create play again button.  
-    // gameArray is not updating correctly and so the minimax function is not using the right board. 
+    // TODO: styling, get that board in the middle, change the buttons. 
 
     interface SquareProps {
       value: any
@@ -195,38 +193,10 @@ const Game = () => {
         const [a, b, c] = lines[i];
         if (newBoard[a] && newBoard[a] === newBoard[b] && newBoard[a] === newBoard[c]) {
          return newBoard[a];
-          // return true;
         }
       }
       return false;
     }
-
-    const didWin = (newBoard: any) => {
-      const lines = [
-        [0, 1, 2],
-        [3, 4, 5],
-        [6, 7, 8],
-        [0, 3, 6],
-        [1, 4, 7],
-        [2, 5, 8],
-        [0, 4, 8],
-        [2, 4, 6],
-      ];
-
-      for (let i = 0; i < lines.length; i++) {
-        const [a, b, c] = lines[i];
-        if (newBoard[a] && newBoard[a] === newBoard[b] && newBoard[a] === newBoard[c]) {
-          console.log("winning is true", newBoard[a])
-          // setStatus('Yikes, you lost to the computer!')
-          return newBoard[a];
-          // return true;
-        }
-      }
-      console.log("winning is false")
-      // setStatus('A draw, well done I suppose.')
-      return false;
-    }
-
 
     // changes the values to either the index or null, if null remove so only availble moves remain
     const getAllAvalilableMoves = (board: any) => {
@@ -292,11 +262,9 @@ const Game = () => {
     }
 
 
-    // the only person clicking is the player, that is the value
+    // handles the unwinable user's choices
     const handleClick = (index: number) => {
 
-
-  
       if (!compTurn && gameArray[index] === null && !winningPlay(gameArray)){  
         const updatedGameArray = [...gameArray];
         updatedGameArray[index] = userPlayer;
@@ -306,19 +274,14 @@ const Game = () => {
 
         setTimeout(() => handleCompPlay(updatedGameArray), 500); 
        
-
       } else {
         console.log('not your turn!!!!!!')
-       
       }
 
-    
     }
 
+    // handles the unbeatable computer's choices
     const handleCompPlay = (gameBoard: any) => {
-      // if (winningPlay(gameArray)){
-      //   setIdkDidWin(true)
-      // }
 
       let result = minimaxAlg(gameBoard, compPlayer)
       
@@ -331,11 +294,17 @@ const Game = () => {
       
     }
     
+    // used to end the game and for conditional logic
     const checkWin = (newUpdatedGameArray: any) => {
+
       if (winningPlay(newUpdatedGameArray)){
         setEndGame(true)
         setStatus('Yikes, you lost! Wanna try again?')
+      } else if (newUpdatedGameArray.filter((move: number) => move !== null).length - 1 === 8 ){
+        setEndGame(true);
+        setStatus('Not bad... a draw! Let\'s try again?')
       }
+   
     }
 
 
@@ -361,9 +330,9 @@ const Game = () => {
       <div> 
         { endGame ?
         (<div> 
-          <button onClick={() => {setGameArray(Array(9).fill(null)); setStatus('Alright, you first...')}}> Try Again</button>
+          <button onClick={() => {setGameArray(Array(9).fill(null)); setStatus('Alright, you first...'); setIsPlayerSelected(false); setShowBoard(false)}}> Try Again</button>
         </div>
-        ) :  null
+        ) : null
         }
       </div>
       </div>
@@ -373,15 +342,25 @@ const Game = () => {
   return (
     <div>
       <h1>Beat the Computer Series</h1>
-      <div id="elevator" className="container-sm">
-        <h2>This is the Elevator Simulation</h2>
-        <Elevator/>
+      <div id="tic-tac-toe"  className="container-sm">
+        <h2>Tic Tac Toe</h2>
+        <h3>You're up against me! The computer. Think you can win...? I'd like to see you try :)</h3>
+        <h4>Choose your fighter: </h4>
+        <h5><button className="btn btn-outline-primary"
+          onClick={() => {setUserPlayer("X"); setCompPlayer("O"); setIsPlayerSelected(true); setShowBoard(true)}}>X</button> OR <button className="btn btn-outline-primary" onClick={() => {setUserPlayer("O"); setCompPlayer("X"); setIsPlayerSelected(true); setShowBoard(true)}}>O</button></h5>
+          <div>
+            {isPlayerSelected ? (userPlayer === "X" ? `${`Mmm, if you think that will help...`}` : `${`Oh... interesting choice.`}` ) : null}
+            {showBoard ?
+            (<div className="board">
+              <TicTacToe />
+            </div>
+            ) : null}
+          </div>
       </div>
       <div id="rand-number" className="container-sm">
         <h2>Random Number</h2>
-        Pick a number 0-10! If you choose the same as the comps, you get a
-        congratulations!
-        <br />
+        <h3>Pick a number 0-10! If you choose the same as the comps, you get a
+        congratulations!</h3>
         <div style={{display: "flex", justifyContent: "center", paddingTop: "10px", paddingBottom: "10px"}}>
           <input
             type="number"
@@ -413,23 +392,12 @@ const Game = () => {
           {isWrongValue ? <h3> YIKES, TRY AGAIN</h3> : null}
         </div>
       </div>
-      <div id="tic-tac-toe"  className="container-sm">
-        <h1>Tic Tac Toe</h1>
-        <h2>You're up against me! The computer. Think you can win...? I'd like to see you try :)</h2>
-        <h2>Choose your fighter: </h2>
-        <h5><button onClick={() => {setUserPlayer("X"); setCompPlayer("O"); setIsPlayerSelected(true); setShowBoard(true)}}>X</button> OR <button onClick={() => {setUserPlayer("O"); setCompPlayer("X"); setIsPlayerSelected(true); setShowBoard(true)}}>O</button></h5>
-          <div>
-            {isPlayerSelected ? (userPlayer === "X" ? `${`Mmm, if you think that will help... Okay! Let's play`}` : `${`Oh... interesting choice. Okay! Let's play.`}` ) : null}
-            {showBoard ?
-            (<div className="board">
-              <TicTacToe />
-            </div>
-            ) : null}
-          </div>
-          <div>
-              
-          </div>
-      </div>
+      {/* <div id="elevator" className="container-sm">
+        <h2>This is the Elevator Simulation</h2>
+        <Elevator/>
+      </div> */}
+      
+      
     </div>
   );  
 };

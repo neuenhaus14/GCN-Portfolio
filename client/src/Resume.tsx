@@ -1,5 +1,7 @@
 import React from "react";
 
+//the resume is coming from the public folder
+
 const Resume = () => {
   return (
     <div>

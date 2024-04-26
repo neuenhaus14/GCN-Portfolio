@@ -42,13 +42,11 @@ const Home = () => {
         )}
       <div className="container-sm" style={{backgroundColor:"#FEC3A6"}}>
         {/* <h3>ABOUT ME</h3> */}
-        <h5> Hello! My name is Gretchen Neuenhaus, and I've just completed nearly 1300 hours of training and education from a coding boot camp here in New Orleans. 
-        I’m trained as a full stack software engineer/ developer most comfortable with the following tech stack: SQL, Sequelize, JavaScript/TypeScript, React, Node, Express, Bootstrap and Sass. 
-        Expressing my creativity through design and problem solving is a huge motivation for me. I find the Front End particularly enjoyable, especially UI/UX decisions, and where I feel I make the greatest contribution. <br /><br />
-        Although that is what I’m most skilled in, that’s not to say I’m not capable or interested in other roles or technology. 
-        Ideally I would continue with building or working with web applications, but I am also interested in working with security and machine learning. 
-        I am currently learning Java in my free time! In my most recent application Pardi Gras, I’ve challenged myself to working with new tech, autonomously working through corresponding bugs, and creating something that makes me proud. <br /><br />
-        Away from my computer, you can find me playing ultimate frisbee, sailing, painting, traveling, or hammock hanging! </h5>
+        <h5> Hello! My name is Gretchen Neuenhaus, and in January I completed nearly 1300 hours of training and education from a coding boot camp here in New Orleans. <br/><br/>
+          I’m trained as a full stack software developer most comfortable with the following tech stack: JavaScript/TypeScript, React, Node, Express, MySQL, 
+          Sequelize, Bootstrap and Sass. <br/><br/>My professional goals are to continue creating with code. Whether that be new features, new software, new 
+          apps, new websites, I find value and feel fulfilled when I create something new or my work solves a problem. I am eager to learn, and I bring valuable 
+          working experience from my past professional roles.<br/><br/>  Away from my computer, you can find me playing ultimate frisbee, sailing, painting, traveling, or hammock hanging!  </h5>
       </div>
       
     </div>
