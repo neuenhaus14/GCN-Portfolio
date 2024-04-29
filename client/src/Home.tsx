@@ -50,7 +50,7 @@ const Home = () => {
           working experience from my past professional roles.<br/><br/>  Away from my computer, you can find me playing ultimate frisbee, sailing, painting, traveling, or hammock hanging!  </h5>
       </div>
       </div>
-      
+      <p>This site was created with React and JavaScript</p>
     </div>
   )
 }
