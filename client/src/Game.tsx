@@ -341,15 +341,15 @@ const Game = () => {
 
   return (
     <div>
-      <h1>Beat the Computer Series</h1>
-      <div id="tic-tac-toe"  className="container-sm">
-        <h2>Tic Tac Toe</h2>
-        <h4>You're up against me! The computer. Think you can win...? I'd like to see you try :)</h4>
-        <h4>Choose your fighter: </h4>
-        <h5><button className="btn btn-outline-primary"
-          onClick={() => {setUserPlayer("X"); setCompPlayer("O"); setIsPlayerSelected(true); setShowBoard(true)}}>X</button> OR <button className="btn btn-outline-primary" onClick={() => {setUserPlayer("O"); setCompPlayer("X"); setIsPlayerSelected(true); setShowBoard(true)}}>O</button></h5>
+      {/* <h1>Beat the Computer Series</h1> */}
+      <div id="tic-tac-toe"  className="container-sm" >
+        <h3>TIC TAC TOE</h3>
+        You're up against me! The computer. Think you can win...? I'd like to see you try :)<br />
+        <p>Choose your fighter: </p> 
+        <p><button className="btn btn-outline-primary"
+          onClick={() => {setUserPlayer("X"); setCompPlayer("O"); setIsPlayerSelected(true); setShowBoard(true)}}>X</button> OR <button className="btn btn-outline-primary" onClick={() => {setUserPlayer("O"); setCompPlayer("X"); setIsPlayerSelected(true); setShowBoard(true)}}>O</button></p>
           <div>
-            {isPlayerSelected ? <p>You are player {userPlayer}. </p> : null}
+            {isPlayerSelected ? `You are player ${userPlayer}.` : null}
             {showBoard ?
             (<div className="board">
               <TicTacToe />
@@ -358,9 +358,10 @@ const Game = () => {
           </div>
       </div>
       <div id="rand-number" className="container-sm">
-        <h2>Random Number</h2>
-        <h4>Pick a number 0-10! If you choose the same as the computer's, you get a
-        congratulations!</h4>
+        <h3>RANDOM NUMBER</h3>
+        Pick a number 0-10! <br/>
+        If you choose the same as the computer's, you get a
+        congratulations!
         <div style={{display: "flex", justifyContent: "center", paddingTop: "10px", paddingBottom: "10px"}}>
           <input
             type="number"

@@ -18,12 +18,14 @@ body {
   font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
+
+
 .congrats-container {
- //position: relative; /* Position relative to contain absolute positioned image */
+ //position: relative; 
   min-height: 200px;
   min-width: 100% ;
-// width: 100%; /* Set width to match the viewport width */
-  overflow: hidden; /* Hide any overflow content */
+// width: 100%; 
+  overflow: hidden; 
   display: flex;
   justify-content: center;
 }
@@ -86,6 +88,16 @@ body {
 
 
 .container-sm{
+  border-radius: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 2px solid $primary;
+  box-shadow: 2px 2px 0 0 $tangerine; 
+}
+
+.container-md{
   border-radius: 10px;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -247,7 +259,7 @@ h3 {
 }
 
 .square:hover{
-  background: $teaGreen;
+  background: $primary;
 }
 
 .board-row{
