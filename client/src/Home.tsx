@@ -3,6 +3,8 @@ import React, {useState, useEffect} from 'react';
 import { Container, Row, Col } from "react-bootstrap";
 // import { ArrowRightCircle } from 'react-bootstrap-icons';
 
+import Skills from './Skills';
+
 //import headerImg from "./img/face.jpg"
 import { isSetAccessorDeclaration } from 'typescript';
 // import gretAward from ".//img/gretAward.jpg"
@@ -76,7 +78,7 @@ const Home = () => {
               <div className={isVisible ? "animate__animated animate__fadeIn" : ""}> */}
                 <span className="tagline">Welcome to my Portfolio</span>
                 <h1>{`Hi! I'm Gretchen`} <div className="txt-rotate" data-rotate='[ "Web Developer", "Web Designer", "UI/UX Designer" ]'><div className="wrap">{text}</div></div></h1>
-                  <p>In January I completed nearly 1300 hours of training and education from a coding boot camp here in New Orleans. <br/>
+                  <p>In January, I completed nearly 1300 hours of training and education from a coding boot camp here in New Orleans. <br/>
                   My professional goals are to continue creating with code. Whether that be new features, product design, maintaining software, new 
                   apps, new websites, I find value and feel fulfilled when I create something new or my work solves a problem. <br/>
                   Away from my computer, you can find me playing ultimate frisbee, sailing, painting, traveling, or hammock hanging!
@@ -95,6 +97,7 @@ const Home = () => {
           </Col>
         </Row>
       </Container>
+      <Skills/>
     </div> 
   )
 
