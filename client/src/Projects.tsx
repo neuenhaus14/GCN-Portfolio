@@ -4,24 +4,10 @@ import {Container, Row, Col, Nav, Tab} from 'react-bootstrap'
 import PGCarousel from "./PGCarousel";
 import QPCarousel from "./QPCarousel";
 import TFCarousel from "./TFCarousel";
+import Game from './Game';
 
 const Projects = () => {
 
-  const projects = [
-    {
-      title: "Pardi Gras",
-      description: "Your One-Stop-Shop for Managing the Chaos of Mardi Gras",
-    },
-    // {
-    //   title: "Take-a-Hike",
-    //   description: "Plan an outdoor trip with trails and birds in your area and leave comments about the experience.",
-    // },
-    {
-      title: "Quiz Party",
-      description: "Fun, competitive quiz app for testing trivia knowledge or custom created quiz sets",
-    },
-    
-  ]
 
   return (
     <div className="project" id="projects">
@@ -32,7 +18,10 @@ const Projects = () => {
               {({ isVisible }) =>
               <div className={isVisible ? "animate__animated animate__fadeIn": ""}> */}
                 <h2>Projects</h2>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                <p>The following projects have been created or maintained using JavaScript or TypeScript. I am proud of all my work, but I am most proud of Pardi Gras. 
+                  I used a lot of unfamiliar tech, I benefited from working collaboratively, and I did a great job at working towards a finished product.
+                  As it is still deployed, go on and take a look at what my team and I created. I insit!
+                </p>
                 <Tab.Container id="projects-tabs" defaultActiveKey="first">
                   <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
                     <Nav.Item>
@@ -83,6 +72,7 @@ const Projects = () => {
       </Container>
       {/* <img className="background-image-right" src={colorSharp2}></img> */}
     </div>
+      // <Game />
   );
 };
 

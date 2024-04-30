@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import { Nav, Navbar, NavDropdown, Container } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLinkedin,} from "@fortawesome/free-brands-svg-icons";
+import { FaLinkedinIn } from "react-icons/fa";
 import { AiFillGithub } from "react-icons/ai";
 import { FaMedium } from "react-icons/fa6";
 
@@ -48,7 +48,7 @@ const NavBar: React.FC<NavBarProps> = ({title}) => {
         <Navbar expand="md" className={scrolled ? "scrolled" : ""}>
         <Container>
           <Navbar.Brand href="/">
-            <img src={logo} alt="Logo" />
+            <img src={logo} id="logo" alt="Logo" />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav">
             <span className="navbar-toggler-icon"></span>
@@ -58,18 +58,18 @@ const NavBar: React.FC<NavBarProps> = ({title}) => {
               <Nav.Link href="#home" className={activeLink === 'home' ? 'active navbar-link' : 'navbar-link'} onClick={() => {navigate("/"); onUpdateActiveLink('home')}}>Home</Nav.Link>
               <Nav.Link href="#skills" className={activeLink === 'skills' ? 'active navbar-link' : 'navbar-link'} onClick={() => {navigate("/#skills"); onUpdateActiveLink('skills')}}>Skills</Nav.Link>
               <Nav.Link href="#projects" className={activeLink === 'projects' ? 'active navbar-link' : 'navbar-link'} onClick={() => {navigate("/#projects"); onUpdateActiveLink('projects')}}>Projects</Nav.Link>
-              <Nav.Link href="#games" className={activeLink === 'games' ? 'active navbar-link' : 'navbar-link'} onClick={() => {navigate("/#game"); onUpdateActiveLink('game')}}>Games</Nav.Link>
+              <Nav.Link href="#games" className={activeLink === 'games' ? 'active navbar-link' : 'navbar-link'} onClick={() => {navigate("/game"); onUpdateActiveLink('game')}}>Games</Nav.Link>
             </Nav>
             <span className="navbar-text">
               <div className="social-icon">
                 <a href="https://www.linkedin.com/in/gretchen-neuenhaus/" className="linkedIn-social">
-                  <FontAwesomeIcon icon={faLinkedin} size="2x" />
+                  <FaLinkedinIn color="#9e9e9e" size="30px" />
                 </a>
                 <a href="https://github.com/neuenhaus14/" className="github-social">
-                  <AiFillGithub size="30px" />
+                  <AiFillGithub color="#9e9e9e" size="30px" />
                 </a>
                 <a href="https://medium.com/@neuenhaus14/" className="medium-social">
-                  <FaMedium size="30px" />
+                  <FaMedium color="#9e9e9e" size="30px" />
                 </a>
               </div>
             </span>

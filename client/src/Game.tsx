@@ -311,7 +311,7 @@ const Game = () => {
   
     return (
       <div>
-      <div className="status">{status}</div>
+      <div className="status"><p>{status}</p></div>
       <div className="board-row">
         <Square value={gameArray[0]} onSquareClick={() => handleClick(0)} />
         <Square value={gameArray[1]} onSquareClick={() => handleClick(1)} />
@@ -340,28 +340,35 @@ const Game = () => {
   }
 
   return (
-    <div>
+    <div className="game" id="game">
       {/* <h1>Beat the Computer Series</h1> */}
-      <div id="tic-tac-toe"  className="container-sm" >
-        <h3>TIC TAC TOE</h3>
-        You're up against me! The computer. Think you can win...? I'd like to see you try :)<br />
-        <p>Choose your fighter: </p> 
-        <p><button className="btn btn-outline-primary"
-          onClick={() => {setUserPlayer("X"); setCompPlayer("O"); setIsPlayerSelected(true); setShowBoard(true)}}>X</button> OR <button className="btn btn-outline-primary" onClick={() => {setUserPlayer("O"); setCompPlayer("X"); setIsPlayerSelected(true); setShowBoard(true)}}>O</button></p>
-          <div>
-            {isPlayerSelected ? `You are player ${userPlayer}.` : null}
-            {showBoard ?
-            (<div className="board">
-              <TicTacToe />
-            </div>
-            ) : null}
-          </div>
-      </div>
+      {/* <div id="tic-tac-toe"  className="container-sm" > */}
+      <div className="row">
+        <div className="col-12">
+          <div className="game-bx ">
+            <h2>Games</h2>
+            <h4>TIC TAC TOE</h4>
+            <p>You're up against me! The computer. Think you can win...? I'd like to see you try :)</p>
+            <p>Choose your fighter: </p> 
+            <p><button className="btn btn-outline-primary"
+              onClick={() => {setUserPlayer("X"); setCompPlayer("O"); setIsPlayerSelected(true); setShowBoard(true)}}>X</button> OR <button className="btn btn-outline-primary" onClick={() => {setUserPlayer("O"); setCompPlayer("X"); setIsPlayerSelected(true); setShowBoard(true)}}>O</button></p>
+              <div>
+                {isPlayerSelected ? <p>You are player {userPlayer}.</p> : null}
+                {isPlayerSelected ?
+                (<div className="board">
+                  <TicTacToe />
+                </div>
+                ) : null}
+              </div>
+      
       <div id="rand-number" className="container-sm">
-        <h3>RANDOM NUMBER</h3>
-        Pick a number 0-10! <br/>
-        If you choose the same as the computer's, you get a
-        congratulations!
+      <div className="row">
+        <div className="col-12">
+          <div className="game-bx ">
+        <h4>RANDOM NUMBER</h4>
+        <p>Pick a number 0-10! </p>
+        <p>If you choose the same as the computer's, you get a
+        congratulations!</p>
         <div style={{display: "flex", justifyContent: "center", paddingTop: "10px", paddingBottom: "10px"}}>
           <input
             type="number"
@@ -397,8 +404,12 @@ const Game = () => {
         <h2>This is the Elevator Simulation</h2>
         <Elevator/>
       </div> */}
-      
-      
+        </div>
+      </div>
+    </div>
+    </div>
+      </div>
+    </div>
     </div>
   );  
 };

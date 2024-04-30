@@ -6,6 +6,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import Skills from './Skills';
 import Projects from './Projects';
 
+
 //import headerImg from "./img/face.jpg"
 import { isSetAccessorDeclaration } from 'typescript';
 // import gretAward from ".//img/gretAward.jpg"
@@ -22,7 +23,7 @@ const Home = () => {
   const [index, setIndex] = useState<number>(1);
 
   const textToRotate = ['Full Stack Developer', 'Web Developer', 'UI/UX Designer']; 
-  const period: number = 2000;
+  const period: number = 1000;
 
   useEffect(() => {
     let ticker = setInterval(() => {
@@ -85,7 +86,7 @@ const Home = () => {
                   apps, new websites, I find value and feel fulfilled when I create something new or my work solves a problem. <br/>
                   Away from my computer, you can find me playing ultimate frisbee, sailing, painting, traveling, or hammock hanging!
                   </p>
-                  <button onClick={() => console.log('connect')}>Let’s Connect</button>
+                  {/* <button onClick={() => console.log('connect')}>Let’s Connect</button> */}
               {/* </div>}
             </TrackVisibility> */}
           </Col>
@@ -102,6 +103,7 @@ const Home = () => {
   <Skills/>
     </div> 
   <Projects />
+
 </div>
   )
 
