@@ -5,10 +5,10 @@ import { Container, Row, Col } from "react-bootstrap";
 
 import Skills from './Skills';
 import Projects from './Projects';
+import Footer from './Footer';
 
 
-//import headerImg from "./img/face.jpg"
-import { isSetAccessorDeclaration } from 'typescript';
+
 // import gretAward from ".//img/gretAward.jpg"
 // import gretPresent from ".//img/gretPresent.jpg"
 import headerImg from ".//img/momGret.png"
@@ -103,7 +103,7 @@ const Home = () => {
   <Skills/>
     </div> 
   <Projects />
-
+  <Footer />
 </div>
   )
 

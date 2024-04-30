@@ -81,13 +81,6 @@ input:focus, textarea:focus, select:focus {
 	}
 }
 
-// p.success {
-// 	color: green;
-// }
-
-// p.danger {
-// 	color: red;
-// }
 
 /************ NAVBAR Css ************/
 
@@ -537,6 +530,15 @@ controls the cursor
   // box-shadow: 2px 2px 0 0 $tangerine; 
 }
 
+.carousel p {
+  color: #9e9e9e;
+  font-size: 18px;
+  letter-spacing: 0.8px;
+  line-height: 1.5em;
+  
+}
+
+
 .carousel-container {
   // border: 1px solid $primary;
   border-radius: 50px;
@@ -563,11 +565,13 @@ controls the cursor
 }
 
 .col-sm a {
+  color: white;
   font-size: 30px;
   font-weight: 700;
   letter-spacing: 0.8px;
   line-height: 1.1em;
   padding-bottom: 10px;
+  text-decoration: underline;
 }
 
 .col-sm h5 {
@@ -797,4 +801,25 @@ controls the cursor
   font-size: 22px;
   font-weight: 500;
   margin-bottom: 10px;
+}
+
+/************ Footer Css ************/
+.footer {
+  padding: 0 0 50px 0;
+  background-image: url('./img/background.png');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.footer img {
+  width: 26%;
+  margin-top: 20px;
+  margin-left: -90%;
+}
+.footer p {
+  font-weight: 400;
+  font-size: 14px;
+  color: #B8B8B8;
+  letter-spacing: 0.5px;
+  margin-top: 20px;
 }
