@@ -25,10 +25,11 @@ const PGCarousel = () => {
   return (
     // <div className="container-sm" style={{display: "flex", justifyContent: "center", flexDirection: "column", flexWrap: "wrap", alignItems:"center", width: "400px"}}>
     // PARDI GRAS
+ 
     <Carousel className="carousel-container"
-              activeIndex={index}
-              onSelect={handleSelect}
-              nextIcon={<span aria-hidden="true" className="carousel-control-next-icon changed" />}
+    activeIndex={index}
+    onSelect={handleSelect}
+    nextIcon={<span aria-hidden="true" className="carousel-control-next-icon changed" />}
     >
       {pardiImages.map((slide, index) => (
         <Carousel.Item key={index} style={{}}>
@@ -45,7 +46,6 @@ const PGCarousel = () => {
         </Carousel.Item>
       ))}
     </Carousel>
-    // </div>
   );  
 
 }

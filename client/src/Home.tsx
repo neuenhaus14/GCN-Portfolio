@@ -4,6 +4,7 @@ import { Container, Row, Col } from "react-bootstrap";
 // import { ArrowRightCircle } from 'react-bootstrap-icons';
 
 import Skills from './Skills';
+import Projects from './Projects';
 
 //import headerImg from "./img/face.jpg"
 import { isSetAccessorDeclaration } from 'typescript';
@@ -69,6 +70,7 @@ const Home = () => {
   }
 
   return (
+    <div>
     <div className="banner" id="home">
       <Container>
         <Row className="align-items-center">
@@ -91,14 +93,16 @@ const Home = () => {
             {/* <TrackVisibility>
               {({ isVisible }) =>
                 <div className={isVisible ? "animate__animated animate__zoomIn" : ""}> */}
-                  <img src={headerImg} alt="Header Img"/>
+                  <img src={headerImg} id="banner-img" alt="Header Img"/>
                 {/* </div>}
             </TrackVisibility> */}
           </Col>
         </Row>
       </Container>
-      <Skills/>
+  <Skills/>
     </div> 
+  <Projects />
+</div>
   )
 
 }
