@@ -39,7 +39,8 @@ const Skills = () => {
                 <div className="col-12">
                     <div className="skill-bx wow zoomIn">
                         <h2>Skills</h2>
-                        <p> While the skills listed below are not exhaustive, they are a good peek into what I can offer!<br></br> Check out my resume for a more indepth look.</p>
+                        <p> While the skills listed below are not exhaustive, they are a good peek into what I can offer!<br>
+                        </br> Check out my <a href='/resume'>resume</a> for a more indepth look.</p>
                         <Carousel responsive={responsive} infinite={true} className="owl-carousel owl-theme skill-slider">
                            <div className="item">
                                 <img src={cog} alt="Image" />

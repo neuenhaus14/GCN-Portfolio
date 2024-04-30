@@ -45,7 +45,8 @@ p, a, li, button, ul {
 }
 
 a {
-  color:white
+  color:white;
+  border-bottom: 1px solid white;
 }
 
 a:hover {

@@ -6,6 +6,11 @@ import { faLinkedin,} from "@fortawesome/free-brands-svg-icons";
 import { AiFillGithub } from "react-icons/ai";
 import { FaMedium } from "react-icons/fa6";
 
+import { HashLink } from 'react-router-hash-link';
+import {
+  BrowserRouter as Router
+} from "react-router-dom";
+
 // import banner from "./img/GNBanner2skinnyUpdate.png";
 import logo from "./img/ggLogo.png"
 
@@ -50,10 +55,10 @@ const NavBar: React.FC<NavBarProps> = ({title}) => {
           </Navbar.Toggle>
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
-              <Nav.Link  className={activeLink === 'home' ? 'active navbar-link' : 'navbar-link'} onClick={() => {navigate("/"); onUpdateActiveLink('home')}}>Home</Nav.Link>
-              <Nav.Link  className={activeLink === 'skills' ? 'active navbar-link' : 'navbar-link'} onClick={() => {navigate("/resume"); onUpdateActiveLink('skills')}}>Skills</Nav.Link>
-              <Nav.Link  className={activeLink === 'projects' ? 'active navbar-link' : 'navbar-link'} onClick={() => {navigate("/development"); onUpdateActiveLink('development')}}>Development</Nav.Link>
-              <Nav.Link  className={activeLink === 'games' ? 'active navbar-link' : 'navbar-link'} onClick={() => {navigate("/game"); onUpdateActiveLink('game')}}>Games</Nav.Link>
+              <Nav.Link href="#home" className={activeLink === 'home' ? 'active navbar-link' : 'navbar-link'} onClick={() => {navigate("/"); onUpdateActiveLink('home')}}>Home</Nav.Link>
+              <Nav.Link href="#skills" className={activeLink === 'skills' ? 'active navbar-link' : 'navbar-link'} onClick={() => {navigate("/#skills"); onUpdateActiveLink('skills')}}>Skills</Nav.Link>
+              <Nav.Link href="#projects" className={activeLink === 'projects' ? 'active navbar-link' : 'navbar-link'} onClick={() => {navigate("/#projects"); onUpdateActiveLink('projects')}}>Projects</Nav.Link>
+              <Nav.Link href="#games" className={activeLink === 'games' ? 'active navbar-link' : 'navbar-link'} onClick={() => {navigate("/#game"); onUpdateActiveLink('game')}}>Games</Nav.Link>
             </Nav>
             <span className="navbar-text">
               <div className="social-icon">
