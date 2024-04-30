@@ -6,8 +6,8 @@ import { faLinkedin,} from "@fortawesome/free-brands-svg-icons";
 import { AiFillGithub } from "react-icons/ai";
 import { FaMedium } from "react-icons/fa6";
 
-import banner from "./img/GNBanner2skinnyUpdate.png";
-import logo from "./img/logo.png"
+// import banner from "./img/GNBanner2skinnyUpdate.png";
+import logo from "./img/ggLogo.png"
 
 interface NavBarProps {
   title: string;
