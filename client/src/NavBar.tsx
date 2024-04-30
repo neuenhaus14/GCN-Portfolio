@@ -39,7 +39,7 @@ const NavBar: React.FC<NavBarProps> = ({title}) => {
 
   return ( 
       <div >
-        <img src={banner} alt="gretchen" width="100%" height="auto"/><br />
+
         <Navbar expand="md" className={scrolled ? "scrolled" : ""}>
         <Container>
           <Navbar.Brand href="/">
